@@ -101,7 +101,7 @@ body{
     background:
 
     linear-gradient(
-    rgba(248,250,252,.90),
+    rgba(248,250,252,.88),
     rgba(241,245,249,.92)
     ),
 
@@ -220,7 +220,7 @@ nav a:hover{
 
 .hero-content{
 
-    max-width:900px;
+    max-width:950px;
 
     display:flex;
 
@@ -234,8 +234,8 @@ nav a:hover{
 
 .profile-photo{
 
-    width:120px;
-    height:120px;
+    width:125px;
+    height:125px;
 
     object-fit:cover;
 
@@ -243,10 +243,10 @@ nav a:hover{
 
     margin-bottom:28px;
 
-    border:4px solid rgba(255,255,255,.92);
+    border:4px solid rgba(255,255,255,.95);
 
     box-shadow:
-    0 10px 25px rgba(15,23,42,.08);
+    0 10px 30px rgba(15,23,42,.08);
 
     transition:.35s ease;
 
@@ -257,7 +257,7 @@ nav a:hover{
     transform:translateY(-4px);
 
     box-shadow:
-    0 18px 35px rgba(15,23,42,.12);
+    0 18px 40px rgba(15,23,42,.14);
 
 }
 
@@ -265,7 +265,7 @@ nav a:hover{
 
 .hero h1{
 
-    font-size:72px;
+    font-size:74px;
 
     line-height:1.02;
 
@@ -277,7 +277,7 @@ nav a:hover{
 
     letter-spacing:-3px;
 
-    max-width:900px;
+    max-width:950px;
 
 }
 
@@ -287,7 +287,7 @@ nav a:hover{
 
     color:#475569;
 
-    max-width:760px;
+    max-width:780px;
 
     margin:auto;
 
@@ -479,9 +479,9 @@ section{
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
+    repeat(auto-fit,minmax(320px,1fr));
 
-    gap:25px;
+    gap:28px;
 
 }
 
@@ -538,11 +538,13 @@ section{
 
 }
 
+/* IMAGEN PRINCIPAL */
+
 .project-image{
 
     width:100%;
 
-    height:260px;
+    aspect-ratio:1.414 / 1;
 
     object-fit:cover;
 
@@ -550,19 +552,27 @@ section{
 
     transition:.5s ease;
 
+    border-top-left-radius:28px;
+
+    border-top-right-radius:28px;
+
 }
 
 .project-card:hover .project-image{
 
-    transform:scale(1.04);
+    transform:scale(1.03);
 
 }
+
+/* CONTENIDO */
 
 .project-content{
 
     padding:35px;
 
 }
+
+/* TAGS */
 
 .project-tags{
 
@@ -592,15 +602,15 @@ section{
 
 }
 
-/* PROJECT GALLERY */
+/* GALERÍA */
 
 .project-gallery{
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
 
-    gap:16px;
+    gap:20px;
 
     margin-top:28px;
 
@@ -610,7 +620,7 @@ section{
 
     width:100%;
 
-    height:180px;
+    aspect-ratio:1.414 / 1;
 
     object-fit:cover;
 
@@ -622,7 +632,7 @@ section{
 
 .gallery-image:hover{
 
-    transform:scale(1.03);
+    transform:scale(1.02);
 
     box-shadow:
     0 16px 35px rgba(15,23,42,.12);
@@ -677,6 +687,10 @@ footer{
 
         font-size:13px;
 
+        flex-wrap:wrap;
+
+        justify-content:center;
+
     }
 
     .section-title{
@@ -698,12 +712,6 @@ footer{
         height:95px;
 
         border-radius:18px;
-
-    }
-
-    .project-gallery{
-
-        grid-template-columns:1fr;
 
     }
 
@@ -734,7 +742,6 @@ Carlos Álvarez Monjaraz
 <li><a href="#perfil">Perfil</a></li>
 <li><a href="#educacion">Educación</a></li>
 <li><a href="#congresos">Congresos</a></li>
-<li><a href="#experiencia">Experiencia</a></li>
 <li><a href="#habilidades">Habilidades</a></li>
 <li><a href="#proyectos">Proyectos</a></li>
 <li><a href="#contacto">Contacto</a></li>
@@ -866,15 +873,15 @@ Asistente en el congreso sobre planificación y ordenamiento territorial contemp
 <div class="card" data-aos="fade-up">
 
 <h3>
-XXIII Congreso Nacional
+XXIII Congreso Nacional Desarrollo Urbano
 </h3>
 
 <span>
-Facultad de Arquitectura UNAM · Octubre 2023
+UNAM · Octubre 2023
 </span>
 
 <p>
-Participación como asistente en el congreso sobre desarrollo urbano, metrópolis, género e historia urbana.
+Participación como asistente en el congreso sobre metrópolis, género, teoría urbana e historia del espacio público.
 </p>
 
 </div>
@@ -977,7 +984,7 @@ Proyectos Destacados
 
 <div class="grid">
 
-<!-- FARMACIA -->
+<!-- PROYECTO -->
 
 <div class="card project-card" data-aos="fade-up">
 
@@ -1014,11 +1021,11 @@ Paisajismo
 <div class="project-gallery">
 
 <img src="farmacia1.jpg"
-alt="Farmacia 1"
+alt="Proyecto"
 class="gallery-image">
 
 <img src="farmacia2.jpg"
-alt="Farmacia 2"
+alt="Proyecto"
 class="gallery-image">
 
 </div>
