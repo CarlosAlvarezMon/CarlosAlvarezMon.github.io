@@ -974,70 +974,113 @@ Participación como asistente en las actividades del Congreso Nacional de Suelo 
 </section>
 
 <!-- HABILIDADES -->
+/* SKILLS VISUAL */
 
-<section id="habilidades">
+.skills-wrapper{
 
-<div class="container">
+    display:grid;
 
-<h2 class="section-title" data-aos="fade-right">
-Habilidades Técnicas
-</h2>
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
 
-<div class="grid">
+    gap:28px;
 
-<div class="skill" data-aos="zoom-in">
+}
 
-<h3>
-SIG y Cartografía
-</h3>
+.skill-card{
 
-<p>
-QGIS, ArcMap, geoprocesamiento y modelación territorial.
-</p>
+    background:rgba(255,255,255,.84);
 
-</div>
+    border:1px solid rgba(15,23,42,.06);
 
-<div class="skill" data-aos="zoom-in">
+    border-radius:24px;
 
-<h3>
-Análisis Espacial
-</h3>
+    padding:32px;
 
-<p>
-GeoDa, Stata y Excel para evaluación territorial y urbana.
-</p>
+    transition:.4s;
 
-</div>
+    backdrop-filter:blur(12px);
 
-<div class="skill" data-aos="zoom-in">
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.05);
 
-<h3>
-Diseño Urbano
-</h3>
+}
 
-<p>
-AutoCAD, SketchUp y Adobe para representación urbana.
-</p>
+.skill-card:hover{
 
-</div>
+    transform:translateY(-8px);
 
-<div class="skill" data-aos="zoom-in">
+    box-shadow:
+    0 18px 40px rgba(15,23,42,.08);
 
-<h3>
-Comunicación Técnica
-</h3>
+}
 
-<p>
-Illustrator, InDesign, PowerPoint y Canva.
-</p>
+.skill-top{
 
-</div>
+    display:flex;
 
-</div>
+    justify-content:space-between;
 
-</div>
+    align-items:center;
 
-</section>
+    margin-bottom:18px;
+
+}
+
+.skill-top h3{
+
+    font-size:20px;
+
+    color:#0f172a;
+
+}
+
+.skill-top span{
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#0ea5e9;
+
+}
+
+.skill-bar{
+
+    width:100%;
+
+    height:10px;
+
+    background:#e2e8f0;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:22px;
+
+}
+
+.skill-progress{
+
+    height:100%;
+
+    background:linear-gradient(
+    to right,
+    #0ea5e9,
+    #38bdf8
+    );
+
+    border-radius:20px;
+
+}
+
+.skill-card p{
+
+    color:#475569;
+
+    line-height:1.7;
+
 
 <!-- PROYECTOS -->
 
