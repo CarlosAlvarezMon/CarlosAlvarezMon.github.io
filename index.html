@@ -494,7 +494,18 @@ section{
 
 /* SKILLS */
 
-.skill{
+.skills-wrapper{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:28px;
+
+}
+
+.skill-card{
 
     background:rgba(255,255,255,.84);
 
@@ -502,36 +513,99 @@ section{
 
     border-radius:24px;
 
-    padding:35px;
+    padding:32px;
 
     transition:.4s;
 
-}
-
-.skill:hover{
-
-    transform:translateY(-10px);
-
-    border-color:rgba(14,165,233,.18);
+    backdrop-filter:blur(12px);
 
     box-shadow:
-    0 16px 40px rgba(15,23,42,.08);
+    0 10px 30px rgba(15,23,42,.05);
 
 }
 
-.skill h3{
+.skill-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 18px 40px rgba(15,23,42,.08);
+
+}
+
+.skill-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
 
     margin-bottom:18px;
 
-    font-size:22px;
+}
+
+.skill-top h3{
+
+    font-size:20px;
 
     color:#0f172a;
 
 }
 
-.skill p{
+.skill-top span{
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#0ea5e9;
+
+}
+
+.skill-icon{
+
+    margin-right:10px;
+
+    font-size:20px;
+
+}
+
+.skill-bar{
+
+    width:100%;
+
+    height:10px;
+
+    background:#e2e8f0;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:22px;
+
+}
+
+.skill-progress{
+
+    height:100%;
+
+    background:linear-gradient(
+    to right,
+    #0ea5e9,
+    #38bdf8
+    );
+
+    border-radius:20px;
+
+}
+
+.skill-card p{
 
     color:#475569;
+
+    line-height:1.7;
 
 }
 
@@ -544,8 +618,6 @@ section{
     padding:0;
 
 }
-
-/* IMAGEN PRINCIPAL */
 
 .project-image{
 
@@ -571,15 +643,11 @@ section{
 
 }
 
-/* CONTENIDO */
-
 .project-content{
 
     padding:35px;
 
 }
-
-/* TAGS */
 
 .project-tags{
 
@@ -608,8 +676,6 @@ section{
     font-weight:600;
 
 }
-
-/* GALERÍA */
 
 .project-gallery{
 
@@ -674,12 +740,8 @@ footer{
         display:none;
     }
 
-    /* NAV */
-
     nav{
-
         padding:0;
-
     }
 
     .nav-container{
@@ -718,8 +780,6 @@ footer{
 
     }
 
-    /* HERO */
-
     .hero{
 
         padding-top:210px;
@@ -757,24 +817,18 @@ footer{
 
     }
 
-    /* TITLES */
-
     .section-title{
 
         font-size:34px;
 
     }
 
-    /* CARDS */
-
     .card,
-    .skill{
+    .skill-card{
 
         padding:28px;
 
     }
-
-    /* PROJECTS */
 
     .project-content{
 
@@ -974,113 +1028,172 @@ Participación como asistente en las actividades del Congreso Nacional de Suelo 
 </section>
 
 <!-- HABILIDADES -->
-/* SKILLS VISUAL */
 
-.skills-wrapper{
+<section id="habilidades">
 
-    display:grid;
+<div class="container">
 
-    grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
+<h2 class="section-title" data-aos="fade-right">
+Habilidades Técnicas
+</h2>
 
-    gap:28px;
+<div class="skills-wrapper">
 
-}
+<!-- SKILL -->
 
-.skill-card{
+<div class="skill-card" data-aos="fade-up">
 
-    background:rgba(255,255,255,.84);
+<div class="skill-top">
 
-    border:1px solid rgba(15,23,42,.06);
+<h3>
+<span class="skill-icon">🗺️</span>
+SIG y Cartografía
+</h3>
 
-    border-radius:24px;
+<span>
+90%
+</span>
 
-    padding:32px;
+</div>
 
-    transition:.4s;
+<div class="skill-bar">
 
-    backdrop-filter:blur(12px);
+<div class="skill-progress" style="width:90%;"></div>
 
-    box-shadow:
-    0 10px 30px rgba(15,23,42,.05);
+</div>
 
-}
+<p>
+QGIS, ArcMap, análisis multicriterio,
+geoprocesamiento y modelación territorial.
+</p>
 
-.skill-card:hover{
+</div>
 
-    transform:translateY(-8px);
+<!-- SKILL -->
 
-    box-shadow:
-    0 18px 40px rgba(15,23,42,.08);
+<div class="skill-card" data-aos="fade-up">
 
-}
+<div class="skill-top">
 
-.skill-top{
+<h3>
+<span class="skill-icon">📐</span>
+Planeación Territorial
+</h3>
 
-    display:flex;
+<span>
+88%
+</span>
 
-    justify-content:space-between;
+</div>
 
-    align-items:center;
+<div class="skill-bar">
 
-    margin-bottom:18px;
+<div class="skill-progress" style="width:88%;"></div>
 
-}
+</div>
 
-.skill-top h3{
+<p>
+Evaluación de proyectos, análisis urbano,
+diagnósticos territoriales y normatividad.
+</p>
 
-    font-size:20px;
+</div>
 
-    color:#0f172a;
+<!-- SKILL -->
 
-}
+<div class="skill-card" data-aos="fade-up">
 
-.skill-top span{
+<div class="skill-top">
 
-    font-size:15px;
+<h3>
+<span class="skill-icon">📊</span>
+Análisis Espacial
+</h3>
 
-    font-weight:700;
+<span>
+85%
+</span>
 
-    color:#0ea5e9;
+</div>
 
-}
+<div class="skill-bar">
 
-.skill-bar{
+<div class="skill-progress" style="width:85%;"></div>
 
-    width:100%;
+</div>
 
-    height:10px;
+<p>
+GeoDa, Stata, análisis estadístico
+y procesamiento de información territorial.
+</p>
 
-    background:#e2e8f0;
+</div>
 
-    border-radius:20px;
+<!-- SKILL -->
 
-    overflow:hidden;
+<div class="skill-card" data-aos="fade-up">
 
-    margin-bottom:22px;
+<div class="skill-top">
 
-}
+<h3>
+<span class="skill-icon">🏙️</span>
+Diseño Urbano
+</h3>
 
-.skill-progress{
+<span>
+82%
+</span>
 
-    height:100%;
+</div>
 
-    background:linear-gradient(
-    to right,
-    #0ea5e9,
-    #38bdf8
-    );
+<div class="skill-bar">
 
-    border-radius:20px;
+<div class="skill-progress" style="width:82%;"></div>
 
-}
+</div>
 
-.skill-card p{
+<p>
+AutoCAD, SketchUp y representación
+urbana y paisajística.
+</p>
 
-    color:#475569;
+</div>
 
-    line-height:1.7;
+<!-- SKILL -->
 
+<div class="skill-card" data-aos="fade-up">
+
+<div class="skill-top">
+
+<h3>
+<span class="skill-icon">🎨</span>
+Comunicación Técnica
+</h3>
+
+<span>
+80%
+</span>
+
+</div>
+
+<div class="skill-bar">
+
+<div class="skill-progress" style="width:80%;"></div>
+
+</div>
+
+<p>
+Illustrator, InDesign, PowerPoint,
+Canva y documentación gráfica.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- PROYECTOS -->
 
@@ -1183,7 +1296,7 @@ Ciudad de México
 
 <footer>
 
-© 2026 Urb. Carlos Álvarez Monjaraz
+© 2026 Carlos Álvarez Monjaraz
 
 </footer>
 
@@ -1215,7 +1328,7 @@ document.addEventListener('mousemove', e => {
 });
 
 const hoverElements =
-document.querySelectorAll('a, .card, .skill, .btn');
+document.querySelectorAll('a, .card, .skill-card, .btn');
 
 hoverElements.forEach(el => {
 
