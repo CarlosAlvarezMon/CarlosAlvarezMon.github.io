@@ -2,17 +2,22 @@
 <html lang="es">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Carlos Álvarez Monjaraz | Urbanista</title>
+<title>
+Carlos Álvarez Monjaraz | Urbanista
+</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* RESET */
 
 *{
     margin:0;
@@ -24,11 +29,51 @@ html{
     scroll-behavior:smooth;
 }
 
+/* BODY */
+
 body{
     font-family:'Inter',sans-serif;
     background:#edf2f4;
-    color:#1e293b;
-    line-height:1.7;
+    color:#e2e8f0;
+    overflow-x:hidden;
+    cursor:none;
+}
+
+/* CURSOR */
+
+.cursor{
+    width:18px;
+    height:18px;
+    border:2px solid #38bdf8;
+    border-radius:50%;
+    position:fixed;
+    transform:translate(-50%, -50%);
+    pointer-events:none;
+    z-index:9999;
+    transition:
+    width .2s ease,
+    height .2s ease,
+    background .2s ease,
+    transform .1s ease;
+}
+
+.cursor.active{
+    width:42px;
+    height:42px;
+    background:rgba(56,189,248,.15);
+}
+
+/* BACKGROUND */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left, rgba(56,189,248,.12), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(14,165,233,.08), transparent 30%),
+    #0f172a;
+    z-index:-2;
 }
 
 /* NAVBAR */
@@ -37,16 +82,17 @@ nav{
     position:fixed;
     width:100%;
     top:0;
-    background:rgba(15,23,42,.92);
-    backdrop-filter:blur(10px);
     z-index:1000;
-    padding:18px 0;
+    backdrop-filter:blur(14px);
+    background:rgba(15,23,42,.55);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav-container{
     width:90%;
     max-width:1200px;
     margin:auto;
+    padding:22px 0;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -54,8 +100,9 @@ nav{
 
 .logo{
     color:white;
-    font-weight:700;
     font-size:20px;
+    font-weight:700;
+    letter-spacing:.5px;
 }
 
 nav ul{
@@ -65,10 +112,10 @@ nav ul{
 }
 
 nav a{
-    color:white;
+    color:#e2e8f0;
     text-decoration:none;
-    font-size:15px;
     transition:.3s;
+    font-size:15px;
 }
 
 nav a:hover{
@@ -79,29 +126,30 @@ nav a:hover{
 
 .hero{
     min-height:100vh;
-    background:
-    linear-gradient(rgba(15,23,42,.75), rgba(15,23,42,.8)),
-    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop');
-    background-size:cover;
-    background-position:center;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    color:white;
     padding:40px;
+    position:relative;
 }
 
-.hero-content h1{
-    font-size:68px;
-    margin-bottom:15px;
-    font-weight:700;
+.hero-content{
+    max-width:900px;
+    animation:fadeUp 1s ease;
 }
 
-.hero-content p{
-    font-size:22px;
-    opacity:.95;
-    margin-bottom:30px;
+.hero h1{
+    font-size:82px;
+    font-weight:800;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:24px;
+    color:#cbd5e1;
+    margin-bottom:40px;
 }
 
 .hero-buttons{
@@ -112,8 +160,8 @@ nav a:hover{
 }
 
 .btn{
-    padding:14px 28px;
-    border-radius:10px;
+    padding:15px 30px;
+    border-radius:14px;
     text-decoration:none;
     font-weight:600;
     transition:.3s;
@@ -125,12 +173,14 @@ nav a:hover{
 }
 
 .btn-primary:hover{
+    transform:translateY(-3px);
     background:#7dd3fc;
 }
 
 .btn-secondary{
-    border:1px solid white;
+    border:1px solid rgba(255,255,255,.2);
     color:white;
+    backdrop-filter:blur(10px);
 }
 
 .btn-secondary:hover{
@@ -138,10 +188,10 @@ nav a:hover{
     color:#0f172a;
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
-    padding:90px 0;
+    padding:100px 0;
 }
 
 .container{
@@ -151,46 +201,55 @@ section{
 }
 
 .section-title{
-    font-size:40px;
-    margin-bottom:50px;
-    color:#0f172a;
+    font-size:42px;
+    margin-bottom:60px;
     position:relative;
+    color:white;
 }
 
 .section-title::after{
     content:'';
-    width:80px;
+    width:90px;
     height:4px;
     background:#38bdf8;
     position:absolute;
     left:0;
-    bottom:-15px;
+    bottom:-18px;
+    border-radius:20px;
 }
 
 /* CARDS */
 
 .card{
-    background:white;
-    border-radius:18px;
-    padding:35px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border-radius:24px;
+    padding:40px;
     margin-bottom:30px;
-    border:1px solid #dbe4ea;
-    box-shadow:0 6px 18px rgba(0,0,0,.06);
-    transition:.3s;
+    transition:.35s;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
 .card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-8px);
+    border-color:rgba(56,189,248,.35);
 }
 
 .card h3{
+    font-size:24px;
     margin-bottom:10px;
-    color:#0f172a;
 }
 
 .card span{
-    color:#64748b;
+    color:#94a3b8;
     font-size:14px;
+}
+
+.card p{
+    margin-top:18px;
+    color:#cbd5e1;
+    line-height:1.8;
 }
 
 /* GRID */
@@ -204,46 +263,70 @@ section{
 /* SKILLS */
 
 .skill{
-    background:white;
-    padding:30px;
-    border-radius:16px;
-    border:1px solid #dbe4ea;
-    transition:.3s;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    padding:35px;
+    transition:.35s;
+    backdrop-filter:blur(14px);
 }
 
 .skill:hover{
-    transform:translateY(-5px);
+    transform:translateY(-8px);
+    border-color:rgba(56,189,248,.35);
 }
 
 .skill h3{
-    margin-bottom:15px;
-    color:#0f172a;
+    margin-bottom:18px;
+    font-size:22px;
 }
 
-/* CONTACT */
-
-.contact p{
-    margin-bottom:10px;
+.skill p{
+    color:#cbd5e1;
+    line-height:1.8;
 }
 
 /* FOOTER */
 
 footer{
-    background:#0f172a;
-    color:white;
+    padding:45px;
     text-align:center;
-    padding:35px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#94a3b8;
 }
 
-/* MOBILE */
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* RESPONSIVE */
 
 @media(max-width:768px){
 
-    .hero-content h1{
-        font-size:42px;
+    body{
+        cursor:auto;
     }
 
-    .hero-content p{
+    .cursor{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:46px;
+    }
+
+    .hero p{
         font-size:18px;
     }
 
@@ -253,7 +336,12 @@ footer{
     }
 
     .section-title{
-        font-size:32px;
+        font-size:34px;
+    }
+
+    .card,
+    .skill{
+        padding:28px;
     }
 }
 
@@ -262,6 +350,10 @@ footer{
 </head>
 
 <body>
+
+<div class="bg"></div>
+
+<div class="cursor"></div>
 
 <!-- NAVBAR -->
 
@@ -291,16 +383,19 @@ Carlos Álvarez Monjaraz
 
 <div class="hero-content">
 
-<h1>Carlos Álvarez Monjaraz</h1>
+<h1>
+Urbanismo, territorio y movilidad urbana
+</h1>
 
 <p>
-Urbanista | Planeación Territorial | Movilidad Urbana | SIG
+Portafolio profesional enfocado en planeación territorial,
+Sistemas de Información Geográfica, movilidad urbana y análisis espacial.
 </p>
 
 <div class="hero-buttons">
 
 <a href="#proyectos" class="btn btn-primary">
-Ver Portafolio
+Ver proyectos
 </a>
 
 <a href="#" class="btn btn-secondary">
@@ -327,17 +422,9 @@ Perfil Profesional
 
 <p>
 Urbanista en formación con experiencia en análisis territorial,
-planeación urbana y evaluación de proyectos. Especializado en
-Sistemas de Información Geográfica (SIG), análisis espacial,
-cartografía temática y evaluación técnica de proyectos urbanos
-y territoriales.
-</p>
-
-<br>
-
-<p>
-Interés profesional en movilidad urbana, accesibilidad,
-infraestructura, diseño urbano y desarrollo territorial sostenible.
+planeación urbana y evaluación de proyectos urbanos y ambientales.
+Especializado en Sistemas de Información Geográfica (SIG),
+cartografía temática y análisis espacial aplicado a dinámicas urbanas.
 </p>
 
 </div>
@@ -367,7 +454,7 @@ Asistente Técnico – Coordinación de Urbanismo UNAM
 </span>
 
 <p>
-Participación en procesos de acreditación académica ANPADEH,
+Participación en procesos de acreditación académica,
 homologación curricular y sistematización documental.
 </p>
 
@@ -384,8 +471,8 @@ Becario – Taller de Diseño y Gestión + Ciudades A.C.
 </span>
 
 <p>
-Diagnóstico urbano, evaluación costo-beneficio e infraestructura
-de saneamiento para proyectos desarrollados con CONAGUA.
+Evaluación urbana y análisis costo-beneficio para proyectos
+de infraestructura de saneamiento desarrollados con CONAGUA.
 </p>
 
 </div>
@@ -401,8 +488,8 @@ Colaborador – CORENADER
 </span>
 
 <p>
-Análisis territorial, cartografía temática y evaluación normativa
-en suelo de conservación de la Ciudad de México.
+Diagnóstico territorial, análisis normativo y elaboración
+de cartografía temática en suelo de conservación.
 </p>
 
 </div>
@@ -425,7 +512,9 @@ Habilidades Técnicas
 
 <div class="skill">
 
-<h3>SIG y Cartografía</h3>
+<h3>
+SIG y Cartografía
+</h3>
 
 <p>
 QGIS, ArcMap, análisis multicriterio,
@@ -436,33 +525,39 @@ geoprocesamiento y modelación territorial.
 
 <div class="skill">
 
-<h3>Análisis Estadístico</h3>
+<h3>
+Análisis Espacial y Estadístico
+</h3>
 
 <p>
-GeoDa, Stata y Excel para análisis
-espacial y evaluación urbana.
+GeoDa, Stata y Excel para evaluación urbana,
+análisis territorial y procesamiento estadístico.
 </p>
 
 </div>
 
 <div class="skill">
 
-<h3>Diseño Urbano</h3>
+<h3>
+Diseño Urbano
+</h3>
 
 <p>
-AutoCAD, SketchUp y Adobe para
-representación territorial y urbana.
+AutoCAD, SketchUp y Adobe para representación
+urbana y territorial.
 </p>
 
 </div>
 
 <div class="skill">
 
-<h3>Comunicación Técnica</h3>
+<h3>
+Comunicación Técnica
+</h3>
 
 <p>
-Illustrator, InDesign, Canva,
-Word y PowerPoint.
+Illustrator, InDesign, Word,
+PowerPoint y Canva.
 </p>
 
 </div>
@@ -490,9 +585,9 @@ Consulta Pública del PGOT CDMX
 </h3>
 
 <p>
-Desarrollo de propuesta de centralidad urbana para Tláhuac
-durante el proceso de consulta pública del Programa General
-de Ordenamiento Territorial de la Ciudad de México.
+Desarrollo de propuesta de centralidad urbana
+para Tláhuac dentro del proceso de consulta pública
+del Programa General de Ordenamiento Territorial.
 </p>
 
 </div>
@@ -504,8 +599,8 @@ Participación Social y Urbanismo
 </h3>
 
 <p>
-Ponente en las Jornadas de Participación Social en el Urbanismo
-y la Arquitectura de la Facultad de Arquitectura de la UNAM.
+Ponente en las Jornadas de Participación Social
+en el Urbanismo y la Arquitectura de la UNAM.
 </p>
 
 </div>
@@ -518,7 +613,7 @@ y la Arquitectura de la Facultad de Arquitectura de la UNAM.
 
 <section id="contacto">
 
-<div class="container contact">
+<div class="container">
 
 <h2 class="section-title">
 Contacto
@@ -531,10 +626,14 @@ Contacto
 carlosalvarezmon00@gmail.com
 </p>
 
+<br>
+
 <p>
 <strong>GitHub:</strong>
 CarlosAlvarezMon
 </p>
+
+<br>
 
 <p>
 <strong>Ubicación:</strong>
@@ -549,11 +648,38 @@ Ciudad de México
 
 <footer>
 
-<p>
 © 2026 Carlos Álvarez Monjaraz
-</p>
 
 </footer>
+
+<script>
+
+/* CURSOR */
+
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', e => {
+
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+
+});
+
+const hoverElements = document.querySelectorAll('a, .card, .skill, .btn');
+
+hoverElements.forEach(el => {
+
+    el.addEventListener('mouseenter', () => {
+        cursor.classList.add('active');
+    });
+
+    el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+    });
+
+});
+
+</script>
 
 </body>
 
