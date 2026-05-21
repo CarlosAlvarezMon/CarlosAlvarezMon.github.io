@@ -15,7 +15,7 @@ Carlos Álvarez Monjaraz | Urbanismo + SIG
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <!-- AOS -->
 
@@ -41,15 +41,13 @@ html{
     scroll-behavior:smooth;
 }
 
-/* BODY */
-
 body{
 
     font-family:'Inter',sans-serif;
 
-    background:#f4f8fb;
+    background:#f4f9fd;
 
-    color:#1e293b;
+    color:#0f172a;
 
     overflow-x:hidden;
 
@@ -72,7 +70,7 @@ body{
 
     position:fixed;
 
-    transform:translate(-50%, -50%);
+    transform:translate(-50%,-50%);
 
     pointer-events:none;
 
@@ -84,10 +82,10 @@ body{
 
 .cursor.active{
 
-    width:42px;
-    height:42px;
+    width:46px;
+    height:46px;
 
-    background:rgba(14,165,233,.15);
+    background:rgba(14,165,233,.12);
 
 }
 
@@ -104,7 +102,7 @@ body{
 
     linear-gradient(
     rgba(248,250,252,.88),
-    rgba(241,245,249,.92)
+    rgba(241,245,249,.95)
     ),
 
     url('Fondo.jpg');
@@ -117,17 +115,15 @@ body{
 
     background-attachment:fixed;
 
-    z-index:-2;
+    z-index:-3;
 
 }
 
-/* GRID OVERLAY */
+/* GRID */
 
-.bg::after{
+.grid-overlay{
 
-    content:'';
-
-    position:absolute;
+    position:fixed;
 
     width:100%;
     height:100%;
@@ -146,6 +142,66 @@ body{
     );
 
     background-size:70px 70px;
+
+    z-index:-2;
+
+}
+
+/* FLOATING BLOBS */
+
+.blob{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:.22;
+
+    z-index:-1;
+
+    animation:float 12s ease-in-out infinite;
+
+}
+
+.blob1{
+
+    width:320px;
+    height:320px;
+
+    background:#38bdf8;
+
+    top:-80px;
+    left:-50px;
+
+}
+
+.blob2{
+
+    width:380px;
+    height:380px;
+
+    background:#818cf8;
+
+    bottom:-120px;
+    right:-80px;
+
+    animation-delay:2s;
+
+}
+
+.blob3{
+
+    width:220px;
+    height:220px;
+
+    background:#22c55e;
+
+    top:40%;
+    left:60%;
+
+    animation-delay:5s;
 
 }
 
@@ -172,6 +228,7 @@ nav{
 .nav-container{
 
     width:90%;
+
     max-width:1250px;
 
     margin:auto;
@@ -188,13 +245,11 @@ nav{
 
 .logo{
 
-    font-size:20px;
+    font-size:22px;
 
     font-weight:800;
 
     color:#0f172a;
-
-    letter-spacing:.5px;
 
 }
 
@@ -202,7 +257,7 @@ nav ul{
 
     display:flex;
 
-    gap:26px;
+    gap:30px;
 
     list-style:none;
 
@@ -214,9 +269,7 @@ nav a{
 
     color:#334155;
 
-    font-size:15px;
-
-    font-weight:500;
+    font-weight:600;
 
     transition:.3s;
 
@@ -238,9 +291,7 @@ nav a:hover{
 
     align-items:center;
 
-    justify-content:center;
-
-    padding:120px 5% 80px;
+    padding:150px 5% 80px;
 
 }
 
@@ -249,6 +300,8 @@ nav a:hover{
     width:100%;
 
     max-width:1250px;
+
+    margin:auto;
 
     display:grid;
 
@@ -266,33 +319,48 @@ nav a:hover{
 
     display:inline-block;
 
-    padding:10px 18px;
+    padding:12px 20px;
 
-    border-radius:50px;
+    border-radius:40px;
 
     background:#dbeafe;
 
     color:#0369a1;
 
-    font-size:14px;
-
     font-weight:700;
 
-    margin-bottom:24px;
+    font-size:14px;
+
+    margin-bottom:28px;
 
 }
 
 .hero h1{
 
-    font-size:78px;
+    font-size:88px;
 
-    line-height:1;
+    line-height:.98;
 
-    color:#0f172a;
-
-    letter-spacing:-3px;
+    letter-spacing:-4px;
 
     margin-bottom:28px;
+
+    font-weight:900;
+
+}
+
+.gradient{
+
+    background:linear-gradient(
+    135deg,
+    #0ea5e9,
+    #2563eb,
+    #7c3aed
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
 
 }
 
@@ -302,9 +370,9 @@ nav a:hover{
 
     color:#475569;
 
-    margin-bottom:40px;
+    max-width:650px;
 
-    max-width:680px;
+    margin-bottom:42px;
 
 }
 
@@ -324,7 +392,7 @@ nav a:hover{
 
     padding:16px 34px;
 
-    border-radius:14px;
+    border-radius:16px;
 
     text-decoration:none;
 
@@ -345,13 +413,13 @@ nav a:hover{
     color:white;
 
     box-shadow:
-    0 14px 30px rgba(37,99,235,.22);
+    0 18px 40px rgba(37,99,235,.24);
 
 }
 
 .btn-primary:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 
 }
 
@@ -359,15 +427,15 @@ nav a:hover{
 
     background:white;
 
-    color:#0f172a;
-
     border:1px solid rgba(15,23,42,.08);
+
+    color:#0f172a;
 
 }
 
 .btn-secondary:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 
 }
 
@@ -387,17 +455,17 @@ nav a:hover{
 
 .metric{
 
-    background:rgba(255,255,255,.8);
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(16px);
 
     border:1px solid rgba(15,23,42,.05);
 
-    backdrop-filter:blur(14px);
-
     padding:24px;
 
-    border-radius:22px;
+    border-radius:24px;
 
-    min-width:160px;
+    min-width:170px;
 
     transition:.35s;
 
@@ -411,19 +479,15 @@ nav a:hover{
 
 .metric h3{
 
-    font-size:36px;
+    font-size:40px;
 
     color:#0ea5e9;
-
-    margin-bottom:8px;
 
 }
 
 .metric p{
 
     font-size:14px;
-
-    margin:0;
 
     color:#475569;
 
@@ -433,13 +497,11 @@ nav a:hover{
 
 .hero-right{
 
-    position:relative;
-
     display:flex;
 
     justify-content:center;
 
-    align-items:center;
+    position:relative;
 
 }
 
@@ -451,82 +513,82 @@ nav a:hover{
 
 .profile-photo{
 
-    width:360px;
+    width:400px;
 
-    height:460px;
+    height:520px;
 
     object-fit:cover;
 
     object-position:center top;
 
-    border-radius:38px;
+    border-radius:40px;
 
-    border:6px solid rgba(255,255,255,.95);
+    border:8px solid rgba(255,255,255,.95);
 
     box-shadow:
-    0 30px 60px rgba(15,23,42,.15);
+    0 30px 70px rgba(15,23,42,.14);
 
 }
 
 /* FLOATING CARDS */
 
-.floating-card{
+.float-card{
 
     position:absolute;
 
-    background:rgba(255,255,255,.86);
+    background:rgba(255,255,255,.82);
 
     backdrop-filter:blur(18px);
 
-    border-radius:22px;
-
     padding:18px 22px;
 
-    box-shadow:
-    0 15px 35px rgba(15,23,42,.08);
+    border-radius:22px;
 
-    animation:float 5s ease-in-out infinite;
+    box-shadow:
+    0 20px 40px rgba(15,23,42,.08);
+
+    animation:floatCard 6s ease-in-out infinite;
 
 }
 
-.floating-card i{
-
-    color:#0ea5e9;
+.float-card i{
 
     margin-right:10px;
 
-}
-
-.card-1{
-
-    top:20px;
-    left:-40px;
+    color:#0ea5e9;
 
 }
 
-.card-2{
+.float1{
 
-    bottom:30px;
-    right:-40px;
-
-    animation-delay:1.5s;
-
-}
-
-.card-3{
-
-    top:45%;
+    top:40px;
     left:-70px;
 
-    animation-delay:3s;
+}
+
+.float2{
+
+    bottom:30px;
+    right:-60px;
+
+    animation-delay:2s;
 
 }
 
-/* SECTIONS */
+.float3{
+
+    top:45%;
+    left:-90px;
+
+    animation-delay:4s;
+
+}
+
+/* SECTION */
 
 section{
 
-    padding:110px 0;
+    padding:120px 0;
 
 }
 
@@ -542,15 +604,13 @@ section{
 
 .section-title{
 
-    font-size:46px;
-
-    color:#0f172a;
+    font-size:52px;
 
     margin-bottom:70px;
 
-    position:relative;
-
     letter-spacing:-2px;
+
+    position:relative;
 
 }
 
@@ -559,7 +619,7 @@ section{
     content:'';
 
     width:90px;
-    height:4px;
+    height:5px;
 
     background:#0ea5e9;
 
@@ -568,7 +628,7 @@ section{
     left:0;
     bottom:-18px;
 
-    border-radius:30px;
+    border-radius:20px;
 
 }
 
@@ -576,9 +636,7 @@ section{
 
 .card{
 
-    background:rgba(255,255,255,.82);
-
-    border:1px solid rgba(15,23,42,.06);
+    background:rgba(255,255,255,.8);
 
     backdrop-filter:blur(18px);
 
@@ -588,10 +646,12 @@ section{
 
     margin-bottom:30px;
 
+    border:1px solid rgba(15,23,42,.05);
+
     transition:.4s;
 
     box-shadow:
-    0 15px 40px rgba(15,23,42,.05);
+    0 20px 45px rgba(15,23,42,.05);
 
 }
 
@@ -599,18 +659,13 @@ section{
 
     transform:translateY(-10px);
 
-    box-shadow:
-    0 25px 60px rgba(15,23,42,.08);
-
 }
 
 .card h3{
 
+    margin-bottom:12px;
+
     font-size:24px;
-
-    margin-bottom:14px;
-
-    color:#0f172a;
 
 }
 
@@ -627,6 +682,43 @@ section{
     color:#475569;
 
     margin-top:18px;
+
+}
+
+/* EDUCATION */
+
+.education-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+
+}
+
+.education-icon{
+
+    min-width:80px;
+    height:80px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:24px;
+
+    background:linear-gradient(
+    135deg,
+    #0ea5e9,
+    #2563eb
+    );
+
+    color:white;
+
+    font-size:30px;
 
 }
 
@@ -647,14 +739,14 @@ section{
 
     background:white;
 
-    border-radius:28px;
-
     padding:34px;
 
-    box-shadow:
-    0 15px 35px rgba(15,23,42,.05);
+    border-radius:28px;
 
     transition:.4s;
+
+    box-shadow:
+    0 18px 40px rgba(15,23,42,.05);
 
 }
 
@@ -672,7 +764,7 @@ section{
 
     align-items:center;
 
-    margin-bottom:20px;
+    margin-bottom:22px;
 
 }
 
@@ -719,7 +811,8 @@ section{
     background:linear-gradient(
     to right,
     #0ea5e9,
-    #2563eb
+    #2563eb,
+    #7c3aed
     );
 
 }
@@ -746,7 +839,7 @@ section{
     background:white;
 
     box-shadow:
-    0 18px 40px rgba(15,23,42,.06);
+    0 20px 50px rgba(15,23,42,.06);
 
     transition:.4s;
 
@@ -772,13 +865,13 @@ section{
 
 .project-card:hover .project-image{
 
-    transform:scale(1.04);
+    transform:scale(1.05);
 
 }
 
 .project-content{
 
-    padding:32px;
+    padding:34px;
 
 }
 
@@ -786,11 +879,11 @@ section{
 
     display:flex;
 
-    gap:10px;
-
     flex-wrap:wrap;
 
-    margin-top:20px;
+    gap:10px;
+
+    margin-top:22px;
 
 }
 
@@ -798,7 +891,7 @@ section{
 
     padding:8px 14px;
 
-    border-radius:30px;
+    border-radius:40px;
 
     background:#dbeafe;
 
@@ -822,13 +915,27 @@ footer{
 
     border-top:1px solid rgba(15,23,42,.06);
 
-    margin-top:80px;
+}
+
+/* ANIMATIONS */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
 
 }
 
-/* FLOAT */
-
-@keyframes float{
+@keyframes floatCard{
 
     0%{
         transform:translateY(0px);
@@ -865,13 +972,13 @@ footer{
 
     .hero h1{
 
-        font-size:56px;
+        font-size:58px;
 
     }
 
     .hero-right{
 
-        margin-top:30px;
+        margin-top:40px;
 
     }
 
@@ -893,8 +1000,7 @@ footer{
 
     .hero{
 
-        padding-top:150px;
-
+        padding-top:170px;
     }
 
     .hero h1{
@@ -911,12 +1017,12 @@ footer{
 
     .profile-photo{
 
-        width:260px;
-        height:340px;
+        width:270px;
+        height:350px;
 
     }
 
-    .floating-card{
+    .float-card{
 
         display:none;
 
@@ -931,6 +1037,12 @@ footer{
 <body>
 
 <div class="bg"></div>
+
+<div class="grid-overlay"></div>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
 
 <div class="cursor"></div>
 
@@ -947,6 +1059,7 @@ Carlos Álvarez Monjaraz
 <ul>
 
 <li><a href="#perfil">Perfil</a></li>
+<li><a href="#educacion">Educación</a></li>
 <li><a href="#habilidades">Habilidades</a></li>
 <li><a href="#proyectos">Proyectos</a></li>
 <li><a href="#contacto">Contacto</a></li>
@@ -972,13 +1085,20 @@ Urban Planning · GIS · Spatial Analysis
 </div>
 
 <h1>
-Planeación Territorial y Diseño Urbano
+
+Planeación
+<span class="gradient">
+Territorial
+</span>
+
+y Diseño Urbano
+
 </h1>
 
 <p>
-Portafolio profesional enfocado en análisis espacial,
-movilidad urbana, diseño urbano y Sistemas de Información
-Geográfica aplicados al territorio.
+Portafolio profesional enfocado en planeación territorial,
+movilidad urbana, Sistemas de Información Geográfica
+y análisis espacial aplicado a dinámicas urbanas.
 </p>
 
 <div class="hero-buttons">
@@ -998,11 +1118,11 @@ Descargar CV
 <div class="metric">
 
 <h3>
-3+
+98%
 </h3>
 
 <p>
-Congresos nacionales
+Avance académico
 </p>
 
 </div>
@@ -1010,11 +1130,11 @@ Congresos nacionales
 <div class="metric">
 
 <h3>
-98%
+3+
 </h3>
 
 <p>
-Avance académico
+Congresos nacionales
 </p>
 
 </div>
@@ -1045,17 +1165,17 @@ Avance académico
 alt="Carlos"
 class="profile-photo">
 
-<div class="floating-card card-1">
-<i class="fa-solid fa-map"></i>
+<div class="float-card float1">
+<i class="fa-solid fa-map-location-dot"></i>
 SIG + Cartografía
 </div>
 
-<div class="floating-card card-2">
+<div class="float-card float2">
 <i class="fa-solid fa-city"></i>
 Diseño Urbano
 </div>
 
-<div class="floating-card card-3">
+<div class="float-card float3">
 <i class="fa-solid fa-chart-column"></i>
 Análisis Espacial
 </div>
@@ -1067,6 +1187,86 @@ Análisis Espacial
 </div>
 
 </header>
+
+<!-- PERFIL -->
+
+<section id="perfil">
+
+<div class="container">
+
+<h2 class="section-title"
+data-aos="fade-right">
+Perfil Profesional
+</h2>
+
+<div class="card"
+data-aos="fade-up">
+
+<p>
+
+Urbanista en formación con experiencia en análisis territorial,
+evaluación de proyectos urbanos y ambientales,
+planeación territorial y diseño urbano.
+Especializado en Sistemas de Información Geográfica,
+cartografía temática y análisis espacial aplicado
+a dinámicas urbanas y metropolitanas.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EDUCACION -->
+
+<section id="educacion">
+
+<div class="container">
+
+<h2 class="section-title"
+data-aos="fade-right">
+Educación
+</h2>
+
+<div class="card"
+data-aos="fade-up">
+
+<div class="education-box">
+
+<div class="education-icon">
+<i class="fa-solid fa-graduation-cap"></i>
+</div>
+
+<div>
+
+<h3>
+Universidad Nacional Autónoma de México
+</h3>
+
+<span>
+Facultad de Arquitectura · Licenciatura en Urbanismo
+</span>
+
+<p>
+
+Ciudad Universitaria, CDMX
+<br>
+Septiembre 2021 – Actual
+(98% de avance)
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- HABILIDADES -->
 
@@ -1081,8 +1281,6 @@ Habilidades Técnicas
 
 <div class="skills-grid">
 
-<!-- SKILL -->
-
 <div class="skill-card"
 data-aos="fade-up">
 
@@ -1090,7 +1288,7 @@ data-aos="fade-up">
 
 <div class="skill-title">
 
-<i class="fa-solid fa-map-location-dot"></i>
+<i class="fa-solid fa-map"></i>
 
 <h3>
 SIG y Cartografía
@@ -1114,8 +1312,6 @@ análisis multicriterio y modelación territorial.
 </p>
 
 </div>
-
-<!-- SKILL -->
 
 <div class="skill-card"
 data-aos="fade-up"
@@ -1149,8 +1345,6 @@ aplicado a dinámicas urbanas.
 </p>
 
 </div>
-
-<!-- SKILL -->
 
 <div class="skill-card"
 data-aos="fade-up"
@@ -1204,8 +1398,6 @@ Proyectos Destacados
 
 <div class="projects-grid">
 
-<!-- PROJECT -->
-
 <div class="project-card"
 data-aos="fade-up">
 
@@ -1220,8 +1412,8 @@ Farmacia Viviente
 
 <p>
 Diagnóstico territorial, análisis normativo
-y propuesta urbano-paisajística en
-Xochimilco, Ciudad de México.
+y propuesta urbano-paisajística
+en Xochimilco, Ciudad de México.
 </p>
 
 <div class="tags">
@@ -1244,8 +1436,6 @@ Paisajismo
 
 </div>
 
-<!-- PROJECT -->
-
 <div class="project-card"
 data-aos="fade-up"
 data-aos-delay="150">
@@ -1260,19 +1450,19 @@ Planeación Territorial
 </h3>
 
 <p>
-Análisis territorial y evaluación
-urbana aplicada a proyectos
-de infraestructura y movilidad.
+Evaluación urbana y análisis espacial
+para proyectos de infraestructura,
+movilidad y planeación territorial.
 </p>
 
 <div class="tags">
 
 <div class="tag">
-Movilidad
+Planeación
 </div>
 
 <div class="tag">
-Planeación
+Movilidad
 </div>
 
 <div class="tag">
