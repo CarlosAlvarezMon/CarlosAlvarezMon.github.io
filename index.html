@@ -1,1183 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>
-Carlos Álvarez Monjaraz | Urbanismo y Planeación Territorial
-</title>
-
-<!-- FUENTES -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!-- ICONOS -->
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-<!-- AOS -->
-
-<link rel="stylesheet"
-href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
-
-<style>
-
-/* RESET */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-
-    font-family:'Inter',sans-serif;
-
-    background:#eef4f8;
-
-    color:#0f172a;
-
-    overflow-x:hidden;
-
-    cursor:none;
-
-}
-
-/* CURSOR */
-
-.cursor{
-
-    width:18px;
-    height:18px;
-
-    border:2px solid #0ea5e9;
-
-    border-radius:50%;
-
-    position:fixed;
-
-    transform:translate(-50%,-50%);
-
-    pointer-events:none;
-
-    z-index:99999;
-
-    transition:.08s ease;
-
-}
-
-.cursor.active{
-
-    width:48px;
-    height:48px;
-
-    background:rgba(14,165,233,.12);
-
-    border-color:#2563eb;
-
-}
-
-/* FONDO */
-
-.bg{
-
-    position:fixed;
-
-    width:100%;
-    height:100%;
-
-    top:0;
-    left:0;
-
-    background:
-
-    linear-gradient(
-    rgba(247,250,252,.90),
-    rgba(240,248,255,.94)
-    ),
-
-    url('Fondo.jpg');
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-attachment:fixed;
-
-    z-index:-5;
-
-}
-
-/* GRID URBANA */
-
-.grid{
-
-    position:fixed;
-
-    width:100%;
-    height:100%;
-
-    top:0;
-    left:0;
-
-    z-index:-4;
-
-    background-image:
-
-    linear-gradient(
-    rgba(14,165,233,.05) 1px,
-    transparent 1px
-    ),
-
-    linear-gradient(
-    90deg,
-    rgba(14,165,233,.05) 1px,
-    transparent 1px
-    );
-
-    background-size:70px 70px;
-
-    animation:gridMove 22s linear infinite;
-
-}
-
-/* BLOBS */
-
-.blob{
-
-    position:fixed;
-
-    border-radius:50%;
-
-    filter:blur(90px);
-
-    opacity:.18;
-
-    z-index:-3;
-
-    animation:float 10s ease-in-out infinite;
-
-}
-
-.blob1{
-
-    width:350px;
-    height:350px;
-
-    background:#38bdf8;
-
-    top:-120px;
-    left:-80px;
-
-}
-
-.blob2{
-
-    width:280px;
-    height:280px;
-
-    background:#2563eb;
-
-    bottom:-90px;
-    right:-50px;
-
-    animation-delay:2s;
-
-}
-
-.blob3{
-
-    width:240px;
-    height:240px;
-
-    background:#14b8a6;
-
-    top:40%;
-    left:60%;
-
-    animation-delay:5s;
-
-}
-
-/* NAV */
-
-nav{
-
-    position:fixed;
-
-    top:0;
-
-    width:100%;
-
-    z-index:1000;
-
-    background:rgba(255,255,255,.70);
-
-    backdrop-filter:blur(14px);
-
-    border-bottom:1px solid rgba(15,23,42,.05);
-
-}
-
-.nav-container{
-
-    width:92%;
-
-    max-width:1350px;
-
-    margin:auto;
-
-    padding:16px 0;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-.logo{
-
-    font-size:18px;
-
-    font-weight:800;
-
-    letter-spacing:.5px;
-
-}
-
-nav ul{
-
-    display:flex;
-
-    list-style:none;
-
-    gap:28px;
-
-}
-
-nav a{
-
-    text-decoration:none;
-
-    color:#334155;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-nav a:hover{
-
-    color:#0ea5e9;
-
-}
-
-/* HERO */
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    padding:110px 0 60px;
-
-}
-
-.hero-container{
-
-    width:92%;
-
-    max-width:1350px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:1.2fr .8fr;
-
-    gap:60px;
-
-    align-items:center;
-
-}
-
-/* HERO LEFT */
-
-.mini-label{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    padding:12px 18px;
-
-    border-radius:50px;
-
-    background:rgba(255,255,255,.75);
-
-    border:1px solid rgba(15,23,42,.05);
-
-    backdrop-filter:blur(12px);
-
-    margin-bottom:28px;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    color:#0369a1;
-
-}
-
-.hero h1{
-
-    font-size:110px;
-
-    line-height:.88;
-
-    letter-spacing:-6px;
-
-    margin-bottom:24px;
-
-    font-weight:900;
-
-}
-
-.hero h1 span{
-
-    color:#0ea5e9;
-
-}
-
-.hero h2{
-
-    font-size:26px;
-
-    color:#334155;
-
-    margin-bottom:26px;
-
-    font-weight:600;
-
-}
-
-.hero p{
-
-    max-width:700px;
-
-    color:#475569;
-
-    font-size:19px;
-
-    line-height:1.8;
-
-    margin-bottom:35px;
-
-}
-
-/* COORDENADAS */
-
-.coords{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    margin-bottom:35px;
-
-    font-size:14px;
-
-    color:#475569;
-
-    letter-spacing:2px;
-
-}
-
-/* BOTONES */
-
-.buttons{
-
-    display:flex;
-
-    gap:18px;
-
-    flex-wrap:wrap;
-
-}
-
-.btn{
-
-    padding:16px 30px;
-
-    border-radius:16px;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    transition:.35s;
-
-}
-
-.btn-primary{
-
-    background:linear-gradient(
-    135deg,
-    #0ea5e9,
-    #2563eb
-    );
-
-    color:white;
-
-    box-shadow:
-    0 20px 45px rgba(37,99,235,.22);
-
-}
-
-.btn-primary:hover{
-
-    transform:translateY(-6px);
-
-}
-
-.btn-secondary{
-
-    background:white;
-
-    color:#0f172a;
-
-    border:1px solid rgba(15,23,42,.08);
-
-}
-
-.btn-secondary:hover{
-
-    transform:translateY(-6px);
-
-}
-
-/* TAGS */
-
-.tags{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:45px;
-
-}
-
-.tag{
-
-    padding:10px 18px;
-
-    border-radius:40px;
-
-    background:white;
-
-    border:1px solid rgba(15,23,42,.05);
-
-    font-size:13px;
-
-    font-weight:700;
-
-    color:#0f172a;
-
-    transition:.3s;
-
-}
-
-.tag:hover{
-
-    transform:translateY(-4px);
-
-    background:#0ea5e9;
-
-    color:white;
-
-}
-
-/* HERO RIGHT */
-
-.hero-right{
-
-    position:relative;
-
-    display:flex;
-
-    justify-content:center;
-
-}
-
-.profile{
-
-    width:420px;
-    height:560px;
-
-    object-fit:cover;
-
-    object-position:center top;
-
-    border-radius:36px;
-
-    border:8px solid rgba(255,255,255,.92);
-
-    box-shadow:
-    0 35px 70px rgba(15,23,42,.16);
-
-}
-
-/* FLOATING CARDS */
-
-.float-card{
-
-    position:absolute;
-
-    background:rgba(255,255,255,.82);
-
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(15,23,42,.05);
-
-    padding:16px 20px;
-
-    border-radius:22px;
-
-    box-shadow:
-    0 20px 45px rgba(15,23,42,.08);
-
-    animation:floatCard 5s ease-in-out infinite;
-
-    font-size:14px;
-
-    font-weight:700;
-
-}
-
-.float-card i{
-
-    color:#0ea5e9;
-
-    margin-right:10px;
-
-}
-
-.card1{
-
-    top:50px;
-    left:-60px;
-
-}
-
-.card2{
-
-    bottom:40px;
-    right:-40px;
-
-    animation-delay:2s;
-
-}
-
-.card3{
-
-    top:50%;
-    left:-90px;
-
-    animation-delay:4s;
-
-}
-
-/* SECCIONES */
-
-section{
-
-    padding:70px 0;
-
-}
-
-.container{
-
-    width:92%;
-
-    max-width:1280px;
-
-    margin:auto;
-
-}
-
-.section-title{
-
-    font-size:52px;
-
-    margin-bottom:45px;
-
-    font-weight:900;
-
-    letter-spacing:-2px;
-
-}
-
-/* CARDS */
-
-.card{
-
-    background:rgba(255,255,255,.78);
-
-    backdrop-filter:blur(16px);
-
-    border:1px solid rgba(15,23,42,.05);
-
-    border-radius:28px;
-
-    padding:34px;
-
-    margin-bottom:24px;
-
-    transition:.35s;
-
-    box-shadow:
-    0 18px 40px rgba(15,23,42,.05);
-
-}
-
-.card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.card h3{
-
-    font-size:24px;
-
-    margin-bottom:12px;
-
-}
-
-.card span{
-
-    font-size:14px;
-
-    color:#64748b;
-
-}
-
-.card p{
-
-    margin-top:18px;
-
-    color:#475569;
-
-    line-height:1.8;
-
-}
-
-/* HABILIDADES */
-
-.skills{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:24px;
-
-}
-
-.skill{
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:28px;
-
-    transition:.35s;
-
-    box-shadow:
-    0 18px 40px rgba(15,23,42,.05);
-
-}
-
-.skill:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.skill-top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:20px;
-
-}
-
-.skill-top i{
-
-    font-size:24px;
-
-    color:#0ea5e9;
-
-}
-
-.bar{
-
-    width:100%;
-
-    height:10px;
-
-    background:#dbeafe;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    margin-bottom:18px;
-
-}
-
-.progress{
-
-    height:100%;
-
-    border-radius:20px;
-
-    background:linear-gradient(
-    to right,
-    #0ea5e9,
-    #2563eb
-    );
-
-}
-
-/* PROYECTOS */
-
-.projects{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(420px,1fr));
-
-    gap:30px;
-
-}
-
-.project{
-
-    overflow:hidden;
-
-    background:white;
-
-    border-radius:32px;
-
-    box-shadow:
-    0 20px 45px rgba(15,23,42,.06);
-
-    transition:.4s;
-
-}
-
-.project:hover{
-
-    transform:translateY(-10px);
-
-}
-
-.project img{
-
-    width:100%;
-
-    aspect-ratio:1.414/1;
-
-    object-fit:cover;
-
-    transition:.5s;
-
-}
-
-.project:hover img{
-
-    transform:scale(1.05);
-
-}
-
-.project-content{
-
-    padding:28px;
-
-}
-
-/* FOOTER */
-
-footer{
-
-    padding:40px;
-
-    text-align:center;
-
-    color:#64748b;
-
-    border-top:1px solid rgba(15,23,42,.06);
-
-    margin-top:40px;
-
-}
-
-/* ANIMACIONES */
-
-@keyframes float{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-25px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
-
-}
-
-@keyframes floatCard{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
-
-}
-
-@keyframes gridMove{
-
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(70px);
-    }
-
-}
-
-/* RESPONSIVE */
-
-@media(max-width:980px){
-
-    .hero-container{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .hero{
-
-        padding-top:140px;
-    }
-
-    .hero h1{
-
-        font-size:68px;
-
-    }
-
-    .hero-right{
-
-        margin-top:20px;
-
-    }
-
-}
-
-@media(max-width:768px){
-
-    body{
-        cursor:auto;
-    }
-
-    .cursor{
-        display:none;
-    }
-
-    nav ul{
-        display:none;
-    }
-
-    .hero{
-
-        padding-top:120px;
-    }
-
-    .hero h1{
-
-        font-size:48px;
-
-        letter-spacing:-3px;
-
-    }
-
-    .hero h2{
-
-        font-size:20px;
-
-    }
-
-    .hero p{
-
-        font-size:16px;
-
-    }
-
-    .profile{
-
-        width:100%;
-        max-width:300px;
-        height:400px;
-
-    }
-
-    .float-card{
-
-        display:none;
-
-    }
-
-    .section-title{
-
-        font-size:38px;
-
-    }
-
-    .projects{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<!-- BACKGROUND -->
-
-<div class="bg"></div>
-
-<div class="grid"></div>
-
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
-
-<div class="cursor"></div>
-
-<!-- NAV -->
-
-<nav>
-
-<div class="nav-container">
-
-<div class="logo">
-Carlos Álvarez Monjaraz
-</div>
-
-<ul>
-
-<li><a href="#perfil">Perfil</a></li>
-<li><a href="#educacion">Educación</a></li>
-<li><a href="#habilidades">Habilidades</a></li>
-<li><a href="#proyectos">Proyectos</a></li>
-<li><a href="#contacto">Contacto</a></li>
-
-</ul>
-
-</div>
-
-</nav>
-
-<!-- HERO -->
-
-<header class="hero">
-
-<div class="hero-container">
-
-<!-- TEXTO -->
-
-<div data-aos="fade-right">
-
-<div class="mini-label">
-
-<i class="fa-solid fa-location-dot"></i>
-
-Coyoacán · Ciudad de México
-
-</div>
-
-<h1>
-
-Carlos
-<br>
-
-Álvarez
-<br>
-
-<span>
-Monjaraz
-</span>
-
-</h1>
-
-<h2>
-
-Urbanismo · Planeación Territorial · Diseño Urbano · SIG
-
-</h2>
-
-<p>
-
-Transformando el territorio mediante análisis espacial,
-diseño urbano y planeación estratégica enfocada
-en dinámicas urbanas contemporáneas.
-
-</p>
-
-<div class="coords">
-
-<i class="fa-solid fa-globe"></i>
-
-19.3467° N · 99.1617° W
-
-</div>
-
-<div class="buttons">
-
-<a href="#proyectos"
-class="btn btn-primary">
-
-Explorar proyectos
-
-</a>
-
-<a href="#contacto"
-class="btn btn-secondary">
-
-Contacto
-
-</a>
-
-</div>
-
-<div class="tags">
-
-<div class="tag">
-SIG
-</div>
-
-<div class="tag">
-Movilidad
-</div>
-
-<div class="tag">
-Planeación
-</div>
-
-<div class="tag">
-Diseño Urbano
-</div>
-
-<div class="tag">
-Cartografía
-</div>
-
-</div>
-
-</div>
-
-<!-- FOTO -->
-
-<div class="hero-right"
-data-aos="fade-left">
-
-<img src="Foto.jpg"
-class="profile">
-
-<div class="float-card card1">
-
-<i class="fa-solid fa-map-location-dot"></i>
-
-SIG y Cartografía
-
-</div>
-
-<div class="float-card card2">
-
-<i class="fa-solid fa-city"></i>
-
-Planeación Territorial
-
-</div>
-
-<div class="float-card card3">
-
-<i class="fa-solid fa-chart-line"></i>
-
-Análisis Espacial
-
-</div>
-
-</div>
-
-</div>
-
-</header>
-
-<!-- PERFIL -->
+<!-- ========================= -->
+<!-- PERFIL PROFESIONAL -->
+<!-- ========================= -->
 
 <section id="perfil">
 
@@ -1195,12 +18,14 @@ data-aos="fade-up">
 
 <p>
 
-Urbanista en formación con experiencia
-en análisis territorial, evaluación de proyectos,
-planeación urbana y diseño urbano.
-Especializado en Sistemas de Información Geográfica,
-cartografía temática y análisis espacial aplicado
-a dinámicas urbanas y metropolitanas.
+Urbanista en formación con experiencia en análisis territorial y evaluación de proyectos y programas de planeación territorial.
+Manejo de herramientas de análisis espacial y estadístico para la interpretación de dinámicas urbanas.
+Capacidad para la elaboración de diagnósticos urbanos y el desarrollo de propuestas de diseño urbano.
+
+<br><br>
+
+Enfoque analítico y orientado a resultados, con habilidades para la optimización técnica de proyectos de diseño urbano,
+planeación territorial y evaluación urbana.
 
 </p>
 
@@ -1210,7 +35,9 @@ a dinámicas urbanas y metropolitanas.
 
 </section>
 
-<!-- EDUCACION -->
+<!-- ========================= -->
+<!-- EDUCACIÓN -->
+<!-- ========================= -->
 
 <section id="educacion">
 
@@ -1228,7 +55,7 @@ data-aos="fade-up">
 
 <h3>
 
-Universidad Nacional Autónoma de México
+Universidad Nacional Autónoma de México (UNAM)
 
 </h3>
 
@@ -1240,9 +67,8 @@ Facultad de Arquitectura · Licenciatura en Urbanismo
 
 <p>
 
-Ciudad Universitaria, CDMX
+Ciudad Universitaria, Ciudad de México
 <br>
-
 Septiembre 2021 – Actual
 (98% de avance)
 
@@ -1254,7 +80,427 @@ Septiembre 2021 – Actual
 
 </section>
 
+<!-- ========================= -->
+<!-- EXPERIENCIA -->
+<!-- ========================= -->
+
+<section id="experiencia">
+
+<div class="container">
+
+<h2 class="section-title"
+data-aos="fade-up">
+
+Experiencia Profesional y Académica
+
+</h2>
+
+<!-- EXPERIENCIA 1 -->
+
+<div class="card"
+data-aos="fade-up">
+
+<h3>
+
+Asistente Técnico – Coordinación de la Licenciatura en Urbanismo,
+Facultad de Arquitectura, UNAM
+
+</h3>
+
+<span>
+
+Ciudad Universitaria, Ciudad de México
+<br>
+Febrero 2026 – Actualidad
+
+</span>
+
+<p>
+
+Participación en el proceso de acreditación del Plan de Estudios
+de la Licenciatura en Urbanismo ante la Acreditadora Nacional
+de Programas de Arquitectura y Disciplinas del Espacio Habitable, A.C.
+(ANPADEH), conforme a criterios de calidad académica
+y pertinencia institucional.
+
+<br><br>
+
+• Actualización y homologación de programas analíticos
+de asignatura conforme a lineamientos de evaluación curricular.
+
+<br>
+
+• Integración, sistematización y control documental
+de evidencias para el proceso de acreditación ANPADEH 2026.
+
+<br>
+
+• Diseño y aplicación de matrices de análisis
+para evaluación comparativa de metodologías
+de evaluación formativa y sumativa.
+
+</p>
+
+</div>
+
+<!-- EXPERIENCIA 2 -->
+
+<div class="card"
+data-aos="fade-up"
+data-aos-delay="100">
+
+<h3>
+
+Becario – Taller de Diseño y Gestión + Ciudades A.C.
+
+</h3>
+
+<span>
+
+Acapulco de Juárez, Guerrero – Ciudad de México
+<br>
+Mayo 2025 – Diciembre 2025
+
+</span>
+
+<p>
+
+Proyecto:
+“Acapulco Se Transforma Contigo:
+Infraestructura de Saneamiento
+en el Municipio de Acapulco de Juárez, Guerrero”
+(Desarrollado para CONAGUA).
+
+<br><br>
+
+• Elaboración de diagnóstico urbano
+con enfoque en infraestructura de saneamiento
+como sustento técnico del proyecto.
+
+<br>
+
+• Análisis y aplicación del marco normativo urbano,
+ambiental y sectorial aplicable.
+
+<br>
+
+• Elaboración de cartografía temática
+mediante Sistemas de Información Geográfica (SIG).
+
+<br>
+
+• Procesamiento y análisis de datos estadísticos
+para evaluación costo-beneficio del proyecto.
+
+<br>
+
+• Cálculo de indicadores de rentabilidad:
+VPN, TIR y Relación Beneficio-Costo.
+
+<br>
+
+• Evaluación preliminar de riesgos
+asociados a la ejecución y operación del proyecto.
+
+</p>
+
+</div>
+
+<!-- EXPERIENCIA 3 -->
+
+<div class="card"
+data-aos="fade-up"
+data-aos-delay="200">
+
+<h3>
+
+Colaborador – Comisión de Recursos Naturales
+y Desarrollo Rural (CORENADER)
+
+</h3>
+
+<span>
+
+Xochimilco, Ciudad de México
+<br>
+Enero 2024 – Junio 2024
+
+</span>
+
+<p>
+
+Anteproyecto:
+“Farmacia Viviente para la comunidad
+de Santiago Tepalcatlalpan, Xochimilco”.
+
+<br><br>
+
+• Elaboración de diagnóstico territorial
+en suelo de conservación de la Ciudad de México.
+
+<br>
+
+• Identificación de Áreas Naturales Protegidas (ANP)
+y Áreas de Valor Ambiental (AVA)
+aplicables al polígono de intervención.
+
+<br>
+
+• Revisión y análisis del marco normativo ambiental y urbano,
+incluyendo NOM-001-SEDATU-2021
+y NACDMX-002-RNAT-2019.
+
+<br>
+
+• Elaboración de cartografía temática
+mediante Sistemas de Información Geográfica (SIG).
+
+<br>
+
+• Colaboración en diseño paisajístico
+con enfoque de integración ecológica
+y bajo impacto.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PROYECTOS DESTACADOS -->
+<!-- ========================= -->
+
+<section id="proyectos">
+
+<div class="container">
+
+<h2 class="section-title"
+data-aos="fade-up">
+
+Proyectos Destacados y Liderazgo
+
+</h2>
+
+<div class="projects">
+
+<!-- PROYECTO 1 -->
+
+<div class="project"
+data-aos="fade-up">
+
+<img src="farmacia1.jpg">
+
+<div class="project-content">
+
+<h3>
+
+Farmacia Viviente · Xochimilco
+
+</h3>
+
+<p>
+
+Diagnóstico territorial,
+análisis normativo y propuesta urbano-paisajística
+en suelo de conservación de la Ciudad de México.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- PROYECTO 2 -->
+
+<div class="project"
+data-aos="fade-up"
+data-aos-delay="100">
+
+<img src="farmacia2.jpg">
+
+<div class="project-content">
+
+<h3>
+
+Consulta Pública del PGOT CDMX
+
+</h3>
+
+<p>
+
+Presentación de propuesta de localización,
+delimitación y diseño urbano para la nueva centralidad
+de Tláhuac en el marco del PGOT.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PROYECTO TEXTO -->
+
+<div class="card"
+data-aos="fade-up"
+style="margin-top:30px;">
+
+<h3>
+
+Ponente · Jornadas de Participación Social
+en el Urbanismo y la Arquitectura
+
+</h3>
+
+<span>
+
+Facultad de Arquitectura, UNAM
+<br>
+21 de abril de 2025
+
+</span>
+
+<p>
+
+Ponencia:
+“La experiencia de la participación social
+desde el contexto internacional”.
+
+<br><br>
+
+• Análisis comparado de modelos internacionales
+de participación ciudadana en planeación urbana.
+
+<br>
+
+• Reflexión sobre mecanismos de inclusión
+y gobernanza territorial en la práctica profesional.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- CONGRESOS -->
+<!-- ========================= -->
+
+<section id="congresos">
+
+<div class="container">
+
+<h2 class="section-title"
+data-aos="fade-up">
+
+Congresos y Participación Académica
+
+</h2>
+
+<div class="card"
+data-aos="fade-up">
+
+<h3>
+
+XVI Congreso Internacional de Planeación Territorial
+
+</h3>
+
+<span>
+
+2022
+
+</span>
+
+<p>
+
+“La enseñanza y la práctica profesional
+de la planificación y el ordenamiento territorial
+contemporáneo en América Latina y el Caribe:
+retos y realidades”.
+
+<br><br>
+
+Asistente · Licenciatura en Urbanismo UNAM
+y ANPUD.
+
+</p>
+
+</div>
+
+<div class="card"
+data-aos="fade-up"
+data-aos-delay="100">
+
+<h3>
+
+XXIII Congreso Nacional:
+Desarrollo Urbano entre la Metrópolis y el Barrio
+
+</h3>
+
+<span>
+
+2023
+
+</span>
+
+<p>
+
+Participación como asistente
+en el Congreso Nacional de Desarrollo Urbano,
+enfocado en teoría urbana,
+políticas públicas, género,
+historia y espacio público.
+
+</p>
+
+</div>
+
+<div class="card"
+data-aos="fade-up"
+data-aos-delay="200">
+
+<h3>
+
+8° Congreso Nacional de Suelo Urbano
+
+</h3>
+
+<span>
+
+2025 · Oaxaca, México
+
+</span>
+
+<p>
+
+“Asistente en el marco del Congreso:
+Avanzando en la implementación
+de la Nueva Agenda Urbana en México”.
+
+<br><br>
+
+Enfoque en integración territorial,
+ciudad y suelo urbano.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
 <!-- HABILIDADES -->
+<!-- ========================= -->
 
 <section id="habilidades">
 
@@ -1269,15 +515,125 @@ Habilidades Técnicas
 
 <div class="skills">
 
+<!-- HABILIDAD 1 -->
+
 <div class="skill"
 data-aos="fade-up">
 
 <div class="skill-top">
 
-<i class="fa-solid fa-map"></i>
+<i class="fa-solid fa-map-location-dot"></i>
 
 <strong>
 SIG y Cartografía
+</strong>
+
+</div>
+
+<div class="bar">
+<div class="progress"
+style="width:92%;">
+</div>
+</div>
+
+<p>
+
+QGIS · ArcMap
+<br><br>
+
+Análisis espacial,
+geoprocesamiento,
+cartografía temática,
+modelación territorial
+y análisis multicriterio.
+
+</p>
+
+</div>
+
+<!-- HABILIDAD 2 -->
+
+<div class="skill"
+data-aos="fade-up"
+data-aos-delay="100">
+
+<div class="skill-top">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<strong>
+Análisis Espacial y Estadístico
+</strong>
+
+</div>
+
+<div class="bar">
+<div class="progress"
+style="width:86%;">
+</div>
+</div>
+
+<p>
+
+GeoDa · Stata · Excel
+<br><br>
+
+Análisis exploratorio
+de datos espaciales,
+estadística aplicada
+y evaluación de proyectos urbanos.
+
+</p>
+
+</div>
+
+<!-- HABILIDAD 3 -->
+
+<div class="skill"
+data-aos="fade-up"
+data-aos-delay="200">
+
+<div class="skill-top">
+
+<i class="fa-solid fa-city"></i>
+
+<strong>
+Diseño y Representación Urbana
+</strong>
+
+</div>
+
+<div class="bar">
+<div class="progress"
+style="width:84%;">
+</div>
+</div>
+
+<p>
+
+AutoCAD · SketchUp · Adobe
+<br><br>
+
+Representación gráfica,
+modelado tridimensional
+y elaboración de planos urbanos.
+
+</p>
+
+</div>
+
+<!-- HABILIDAD 4 -->
+
+<div class="skill"
+data-aos="fade-up"
+data-aos-delay="300">
+
+<div class="skill-top">
+
+<i class="fa-solid fa-pen-ruler"></i>
+
+<strong>
+Comunicación Técnica
 </strong>
 
 </div>
@@ -1290,9 +646,62 @@ style="width:90%;">
 
 <p>
 
-QGIS, ArcMap, geoprocesamiento
-y modelación territorial.
+Illustrator · InDesign · Canva
+<br><br>
 
+Informes técnicos,
+láminas urbanas,
+diagramación
+y presentaciones ejecutivas.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- IDIOMAS -->
+<!-- ========================= -->
+
+<section id="idiomas">
+
+<div class="container">
+
+<h2 class="section-title"
+data-aos="fade-up">
+
+Idiomas
+
+</h2>
+
+<div class="skills">
+
+<div class="skill"
+data-aos="fade-up">
+
+<div class="skill-top">
+
+<i class="fa-solid fa-language"></i>
+
+<strong>
+Español
+</strong>
+
+</div>
+
+<div class="bar">
+<div class="progress"
+style="width:100%;">
+</div>
+</div>
+
+<p>
+Nativo
 </p>
 
 </div>
@@ -1303,24 +712,22 @@ data-aos-delay="100">
 
 <div class="skill-top">
 
-<i class="fa-solid fa-chart-column"></i>
+<i class="fa-solid fa-language"></i>
 
 <strong>
-Análisis Espacial
+Inglés
 </strong>
 
 </div>
 
 <div class="bar">
 <div class="progress"
-style="width:85%;">
+style="width:60%;">
 </div>
 </div>
 
 <p>
-
-GeoDa, Stata y evaluación territorial.
-
+Nivel B1
 </p>
 
 </div>
@@ -1331,24 +738,22 @@ data-aos-delay="200">
 
 <div class="skill-top">
 
-<i class="fa-solid fa-city"></i>
+<i class="fa-solid fa-language"></i>
 
 <strong>
-Diseño Urbano
+Francés
 </strong>
 
 </div>
 
 <div class="bar">
 <div class="progress"
-style="width:82%;">
+style="width:60%;">
 </div>
 </div>
 
 <p>
-
-AutoCAD, SketchUp y representación urbana.
-
+Nivel B1
 </p>
 
 </div>
@@ -1358,193 +763,3 @@ AutoCAD, SketchUp y representación urbana.
 </div>
 
 </section>
-
-<!-- PROYECTOS -->
-
-<section id="proyectos">
-
-<div class="container">
-
-<h2 class="section-title"
-data-aos="fade-up">
-
-Proyectos Destacados
-
-</h2>
-
-<div class="projects">
-
-<div class="project"
-data-aos="fade-up">
-
-<img src="farmacia1.jpg">
-
-<div class="project-content">
-
-<h3>
-
-Farmacia Viviente
-
-</h3>
-
-<p>
-
-Diagnóstico territorial,
-análisis normativo y propuesta
-urbano-paisajística en Xochimilco.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="project"
-data-aos="fade-up"
-data-aos-delay="100">
-
-<img src="farmacia2.jpg">
-
-<div class="project-content">
-
-<h3>
-
-Planeación Territorial
-
-</h3>
-
-<p>
-
-Evaluación urbana y análisis espacial
-para proyectos territoriales y urbanos.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACTO -->
-
-<section id="contacto">
-
-<div class="container">
-
-<h2 class="section-title"
-data-aos="fade-up">
-
-Contacto
-
-</h2>
-
-<div class="card"
-data-aos="fade-up">
-
-<p>
-
-<strong>
-Correo:
-</strong>
-
-carlosalvarezmon00@gmail.com
-
-</p>
-
-<br>
-
-<p>
-
-<strong>
-GitHub:
-</strong>
-
-CarlosAlvarezMon
-
-</p>
-
-<br>
-
-<p>
-
-<strong>
-Ubicación:
-</strong>
-
-Coyoacán, Ciudad de México
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 Carlos Álvarez Monjaraz
-
-</footer>
-
-<!-- AOS -->
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<script>
-
-/* AOS */
-
-AOS.init({
-
-    duration:1000,
-    once:true
-
-});
-
-/* CURSOR */
-
-const cursor =
-document.querySelector('.cursor');
-
-document.addEventListener('mousemove', e => {
-
-    cursor.style.left =
-    e.clientX + 'px';
-
-    cursor.style.top =
-    e.clientY + 'px';
-
-});
-
-const hover =
-document.querySelectorAll(
-'a, .btn, .card, .skill, .project, .tag'
-);
-
-hover.forEach(el => {
-
-    el.addEventListener('mouseenter', () => {
-
-        cursor.classList.add('active');
-
-    });
-
-    el.addEventListener('mouseleave', () => {
-
-        cursor.classList.remove('active');
-
-    });
-
-});
-
-</script>
-
-</body>
-
-</html>
