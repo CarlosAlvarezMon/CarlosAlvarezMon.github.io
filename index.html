@@ -1061,51 +1061,85 @@ section{
 
 }
 
-/* SECCIÓN: CONSTANCIAS Y CERTIFICACIONES */
+/* SECCIÓN: CONSTANCIAS Y CERTIFICACIONES (REDISEÑADA CON MINIATURAS) */
 
 .certificates-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:24px;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
 }
 
 .certificate-card{
     background:white;
     border:1px solid rgba(15,23,42,.05);
-    border-radius:24px;
-    padding:28px;
+    border-radius:28px;
     box-shadow:0 18px 40px rgba(15,23,42,.05);
     transition:.3s ease;
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    overflow:hidden; /* Permite que la imagen superior sangre a las esquinas */
     cursor:pointer;
 }
 
 .certificate-card:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
     border-color:rgba(14,165,233,.2);
+    box-shadow:0 22px 45px rgba(15,23,42,.08);
+}
+
+/* Espacio adaptado para la vista previa de la constancia */
+.cert-preview {
+    width:100%;
+    height:180px; /* Proporción ideal y compacta para documentos */
+    overflow:hidden;
+    background:#e2e8f0;
+    border-bottom:1px solid rgba(15,23,42,.05);
+}
+
+.cert-preview img {
+    width:100%;
+    height:100%;
+    object-fit:cover; /* Mantiene la estética uniforme pase lo que pase */
+    object-position:top center; /* Enfoca el encabezado de los certificados */
+    transition:transform .5s ease;
+}
+
+.certificate-card:hover .cert-preview img {
+    transform:scale(1.04);
+}
+
+.cert-content {
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    flex-grow:1;
 }
 
 .cert-icon{
-    font-size:26px;
+    font-size:22px;
     color:#0ea5e9;
-    margin-bottom:16px;
+    margin-bottom:14px;
+}
+
+.cert-header-line {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
 }
 
 .cert-year{
     display:inline-block;
-    padding:4px 10px;
+    padding:5px 12px;
     border-radius:12px;
     background:rgba(14,165,233,.1);
     color:#0284c7;
     font-size:12px;
     font-weight:700;
-    margin-bottom:12px;
 }
 
 .cert-title{
-    font-size:17px;
+    font-size:18px;
     font-weight:700;
     color:#0f172a;
     margin-bottom:8px;
@@ -1123,7 +1157,7 @@ section{
     font-size:13px;
     color:#475569;
     line-height:1.6;
-    margin-bottom:20px;
+    margin-bottom:24px;
 }
 
 .btn-cert{
@@ -1135,14 +1169,14 @@ section{
     align-items:center;
     gap:8px;
     transition:.2s;
-    margin-top:auto;
+    margin-top:auto; /* Empuja el botón siempre al fondo de la tarjeta */
 }
 
 .certificate-card:hover .btn-cert{
     color:#2563eb;
 }
 
-/* ESTRUCTURA ELEGANTE DEL MODAL (VENTANA FLOTANTE) */
+/* ESTRUCTURA DEL MODAL */
 
 .pdf-modal {
     display:none;
@@ -1901,54 +1935,74 @@ Constancias y Certificaciones
 <div class="certificates-grid">
 
 <div class="certificate-card" onclick="openPdfModal('Constancia ALEUP.pdf', 'XVI Congreso de Planificación y Ordenamiento Territorial')">
-    <div>
-        <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
-        <span class="cert-year">2022</span>
+    <div class="cert-preview">
+        <img src="preview_aleup.jpg" alt="Vista previa Constancia ALEUP">
+    </div>
+    <div class="cert-content">
+        <div class="cert-header-line">
+            <span class="cert-year">2022</span>
+            <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
+        </div>
         <h3 class="cert-title">Asistente en Congreso ALEUP</h3>
         <p class="cert-issuer">Universidad de Guadalajara · CUAAD</p>
         <p class="cert-desc">XVI Congreso: La enseñanza y la práctica profesional de la planificación y el ordenamiento territorial contemporáneo en América Latina y el Caribe: retos y realidades.</p>
-    </div>
-    <div class="btn-cert">
-        Visualizar constancia <i class="fa-solid fa-eye"></i>
+        <div class="btn-cert">
+            Visualizar constancia <i class="fa-solid fa-eye"></i>
+        </div>
     </div>
 </div>
 
 <div class="certificate-card" onclick="openPdfModal('Constancia XXIII ANPUD.pdf', 'XXIII Congreso Nacional Desarrollo Urbano')">
-    <div>
-        <div class="cert-icon"><i class="fa-solid fa-users-rectangle"></i></div>
-        <span class="cert-year">2023</span>
+    <div class="cert-preview">
+        <img src="preview_anpud.jpg" alt="Vista previa Constancia XXIII ANPUD">
+    </div>
+    <div class="cert-content">
+        <div class="cert-header-line">
+            <span class="cert-year">2023</span>
+            <div class="cert-icon"><i class="fa-solid fa-users-rectangle"></i></div>
+        </div>
         <h3 class="cert-title">Asistente en Congreso XXIII ANPUD</h3>
         <p class="cert-issuer">UNAM · Facultad de Arquitectura</p>
         <p class="cert-desc">XXIII Congreso Nacional Desarrollo Urbano: Entre la metrópolis y el barrio: teoría, políticas, género, historia y espacio público. Ciudad Universitaria, CDMX.</p>
-    </div>
-    <div class="btn-cert">
-        Visualizar constancia <i class="fa-solid fa-eye"></i>
+        <div class="btn-cert">
+            Visualizar constancia <i class="fa-solid fa-eye"></i>
+        </div>
     </div>
 </div>
 
 <div class="certificate-card" onclick="openPdfModal('Constancias Farmacias.pdf', 'Proyecto Conceptual de la Farmacia Viviente')">
-    <div>
-        <div class="cert-icon"><i class="fa-solid fa-seedling"></i></div>
-        <span class="cert-year">2024</span>
+    <div class="cert-preview">
+        <img src="preview_farmacias.jpg" alt="Vista previa Constancia Farmacias">
+    </div>
+    <div class="cert-content">
+        <div class="cert-header-line">
+            <span class="cert-year">2024</span>
+            <div class="cert-icon"><i class="fa-solid fa-seedling"></i></div>
+        </div>
         <h3 class="cert-title">Proyecto Conceptual "Farmacia Viviente"</h3>
         <p class="cert-issuer">CORENADR · Suelo de Conservación CDMX</p>
         <p class="cert-desc">Participación técnica en el Diseño y Propuesta del espacio para la comunidad Santiago Tepalcatlalpan de la Ciudad de México.</p>
-    </div>
-    <div class="btn-cert">
-        Visualizar constancia <i class="fa-solid fa-eye"></i>
+        <div class="btn-cert">
+            Visualizar constancia <i class="fa-solid fa-eye"></i>
+        </div>
     </div>
 </div>
 
 <div class="certificate-card" onclick="openPdfModal('8vo Congreso de suelo urbano .pdf', '8vo Congreso Nacional de Suelo Urbano')">
-    <div>
-        <div class="cert-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-        <span class="cert-year">2025</span>
+    <div class="cert-preview">
+        <img src="preview_suelo.jpg" alt="Vista previa 8vo Congreso Suelo Urbano">
+    </div>
+    <div class="cert-content">
+        <div class="cert-header-line">
+            <span class="cert-year">2025</span>
+            <div class="cert-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+        </div>
         <h3 class="cert-title">Participación en 8vo Congreso Nacional</h3>
         <p class="cert-issuer">UABJO · Facultad de Arquitectura, Diseño y Urbanismo</p>
         <p class="cert-desc">Congreso enfocado en dinámicas de Suelo Urbano, gestión del territorio y normativas. Realizado en Oaxaca de Juárez, México.</p>
-    </div>
-    <div class="btn-cert">
-        Visualizar constancia <i class="fa-solid fa-eye"></i>
+        <div class="btn-cert">
+            Visualizar constancia <i class="fa-solid fa-eye"></i>
+        </div>
     </div>
 </div>
 
@@ -2063,7 +2117,7 @@ function closeModalAction() {
     modal.classList.remove('active');
     document.body.style.overflow = ''; // Devuelve el scroll
     
-    // Limpia el src tras cerrar para liberar memoria y detener procesos del PDF
+    // Limpia el src tras cerrar para liberar memoria
     setTimeout(() => {
         iframe.src = "";
     }, 300);
@@ -2073,7 +2127,7 @@ function closePdfModal() {
     closeModalAction();
 }
 
-// Cerrar si el usuario hace click fuera del recuadro blanco (en el fondo difuminado)
+// Cerrar si el usuario hace click fuera del recuadro blanco
 document.getElementById('pdfModal').addEventListener('click', function(e) {
     if (e.target === this) {
         closeModalAction();
