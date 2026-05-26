@@ -120,6 +120,9 @@ body{
     background-size:70px 70px;
 
     animation:gridMove 24s linear infinite;
+    
+    /* OPTIMIZACIÓN DE RENDIMIENTO */
+    will-change: transform;
 
 }
 
@@ -138,6 +141,9 @@ body{
     z-index:-3;
 
     animation:float 10s ease-in-out infinite;
+    
+    /* OPTIMIZACIÓN DE RENDIMIENTO */
+    will-change: transform;
 
 }
 
@@ -255,7 +261,8 @@ nav a:hover{
 
     align-items:center;
 
-    padding:120px 0 80px;
+    /* ESPACIADO INFERIOR REDUCIDO */
+    padding:120px 0 50px; 
 
 }
 
@@ -599,6 +606,9 @@ nav a:hover{
     0 20px 45px rgba(15,23,42,.08);
 
     animation:floatIcon 6s ease-in-out infinite;
+    
+    /* OPTIMIZACIÓN DE RENDIMIENTO */
+    will-change: transform;
 
     transition:.4s ease;
 
@@ -704,6 +714,9 @@ nav a:hover{
     0 20px 45px rgba(15,23,42,.08);
 
     animation:floatCard 5s ease-in-out infinite;
+    
+    /* OPTIMIZACIÓN DE RENDIMIENTO */
+    will-change: transform;
 
     font-size:13px;
 
@@ -748,7 +761,8 @@ nav a:hover{
 
 section{
 
-    padding:80px 0;
+    /* ESPACIADO ENTRE APARTADOS REDUCIDO */
+    padding:50px 0; 
 
 }
 
@@ -1324,7 +1338,7 @@ footer{
 
     border-top:1px solid rgba(15,23,42,.06);
 
-    margin-top:40px;
+    margin-top:20px;
 
 }
 
@@ -1793,9 +1807,9 @@ Proyectos Destacados
 
     <div class="carousel-container">
         <div class="carousel-track" id="acapulco-track">
-            <img src="Acapulco Propuestas.jpg" alt="Acapulco Propuestas">
-            <img src="Acapulco Isocronas.jpg" alt="Acapulco Isocronas">
-            <img src="Acapulco Estrategias.jpg" alt="Acapulco Estrategias">
+            <img src="Acapulco Propuestas.jpg" alt="Acapulco Propuestas" loading="lazy">
+            <img src="Acapulco Isocronas.jpg" alt="Acapulco Isocronas" loading="lazy">
+            <img src="Acapulco Estrategias.jpg" alt="Acapulco Estrategias" loading="lazy">
         </div>
         <div class="carousel-indicators">
             <div class="dot active"></div>
@@ -1882,7 +1896,7 @@ Proyectos Destacados
 
 <div class="project">
 
-<img src="farmacia1.jpg">
+<img src="farmacia1.jpg" loading="lazy">
 
 <div class="project-content">
 
@@ -1924,7 +1938,7 @@ Diagnóstico territorial, análisis normativo y propuesta urbano-paisajística m
 
 <div class="project">
 
-<img src="farmacia2.jpg">
+<img src="farmacia2.jpg" loading="lazy">
 
 <div class="project-content">
 
@@ -1966,7 +1980,7 @@ Evaluación urbana y análisis territorial para proyectos urbanos y regionales i
 
 <div class="project">
 
-<img src="Rediseño intersección.jpg">
+<img src="Rediseño intersección.jpg" loading="lazy">
 
 <div class="project-content">
 
@@ -2067,7 +2081,7 @@ Constancias y Certificaciones
 
 <div class="certificate-card" onclick="openPdfModal('Constancia ALEUP.pdf', 'XVI Congreso de Planificación y Ordenamiento Territorial')">
     <div class="cert-preview">
-        <img src="Constancia ALEUP.jpg" alt="Vista previa Constancia ALEUP">
+        <img src="Constancia ALEUP.jpg" alt="Vista previa Constancia ALEUP" loading="lazy">
     </div>
     <div class="cert-content">
         <div class="cert-header-line">
@@ -2085,7 +2099,7 @@ Constancias y Certificaciones
 
 <div class="certificate-card" onclick="openPdfModal('Constancia_IPDP.pdf', 'Mesa de Trabajo PGOT CDMX')">
     <div class="cert-preview">
-        <img src="Constancia_IPDP.jpg" alt="Vista previa Constancia IPDP">
+        <img src="Constancia_IPDP.jpg" alt="Vista previa Constancia IPDP" loading="lazy">
     </div>
     <div class="cert-content">
         <div class="cert-header-line">
@@ -2103,7 +2117,7 @@ Constancias y Certificaciones
 
 <div class="certificate-card" onclick="openPdfModal('Constancia XXIII ANPUD.pdf', 'XXIII Congreso Nacional Desarrollo Urbano')">
     <div class="cert-preview">
-        <img src="Constancia XXIII ANPUD.jpg" alt="Vista previa Constancia XXIII ANPUD">
+        <img src="Constancia XXIII ANPUD.jpg" alt="Vista previa Constancia XXIII ANPUD" loading="lazy">
     </div>
     <div class="cert-content">
         <div class="cert-header-line">
@@ -2121,7 +2135,7 @@ Constancias y Certificaciones
 
 <div class="certificate-card" onclick="openPdfModal('Constancias Farmacias.pdf', 'Proyecto Conceptual de la Farmacia Viviente')">
     <div class="cert-preview">
-        <img src="Constancias Farmacias.jpg" alt="Vista previa Constancia Farmacias">
+        <img src="Constancias Farmacias.jpg" alt="Vista previa Constancia Farmacias" loading="lazy">
     </div>
     <div class="cert-content">
         <div class="cert-header-line">
@@ -2139,7 +2153,7 @@ Constancias y Certificaciones
 
 <div class="certificate-card" onclick="openPdfModal('8vo Congreso de suelo urbano .pdf', '8vo Congreso Nacional de Suelo Urbano')">
     <div class="cert-preview">
-        <img src="8vo Congreso de suelo urbano.jpg" alt="Vista previa 8vo Congreso Suelo Urbano">
+        <img src="8vo Congreso de suelo urbano.jpg" alt="Vista previa 8vo Congreso Suelo Urbano" loading="lazy">
     </div>
     <div class="cert-content">
         <div class="cert-header-line">
