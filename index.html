@@ -2,364 +2,1544 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carlos Álvarez Monjaraz | Urbanismo y Planeación</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        /* CORE SETUP */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: #eef4f8; color: #0f172a; overflow-x: hidden; line-height: 1.6; }
+<title>
+Carlos Álvarez Monjaraz | Urbanismo y Planeación Territorial
+</title>
 
-        /* FONDO Y RENDIMIENTO */
-        .bg { position: fixed; width: 100%; height: 100%; top: 0; left: 0; background: linear-gradient(rgba(247,250,252,.94), rgba(240,248,255,.96)), url('Fondo.jpg'); background-size: cover; z-index: -5; }
-        .grid { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -4; background-image: linear-gradient(rgba(14,165,233,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(14,165,233,.03) 1px, transparent 1px); background-size: 60px 60px; will-change: transform; }
-        .blob { position: fixed; border-radius: 50%; filter: blur(80px); opacity: .08; z-index: -3; will-change: transform; animation: float 10s ease-in-out infinite; }
-        .blob1 { width: 400px; height: 400px; background: #38bdf8; top: -100px; left: -100px; }
-        .blob2 { width: 300px; height: 300px; background: #2563eb; bottom: -50px; right: -50px; animation-delay: 2s; }
+<meta name="description"
+content="Portafolio profesional de Carlos Álvarez Monjaraz, urbanista especializado en análisis espacial, SIG, diseño urbano y planeación territorial.">
 
-        /* NAVEGACIÓN */
-        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,.75); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(15,23,42,.05); }
-        .nav-container { width: 90%; max-width: 1300px; margin: auto; padding: 14px 0; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 17px; font-weight: 800; color: #0f172a; letter-spacing: -0.5px; }
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav a { text-decoration: none; color: #475569; font-size: 13px; font-weight: 600; transition: .3s; }
-        nav a:hover { color: #0ea5e9; }
+<meta property="og:title"
+content="Carlos Álvarez Monjaraz | Urbanismo y SIG">
 
-        /* SECCIONES REOPTIMIZADAS */
-        section { padding: 45px 0; }
-        .container { width: 90%; max-width: 1100px; margin: auto; }
-        .section-title { font-family: 'Sora', sans-serif; font-size: 38px; margin-bottom: 30px; font-weight: 800; letter-spacing: -1.5px; color: #0f172a; }
-        
-        .card { background: rgba(255,255,255,.8); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5); border-radius: 24px; padding: 30px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(15,23,42,0.03); transition: transform 0.3s ease; }
-        .card:hover { transform: translateY(-3px); }
+<meta property="og:description"
+content="Portafolio profesional en urbanismo, análisis espacial y planeación territorial.">
 
-        /* HERO */
-        .hero { min-height: 90vh; display: flex; align-items: center; padding-top: 100px; }
-        .hero-container { width: 90%; max-width: 1200px; margin: auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
-        .hero h1 { font-family: 'Sora', sans-serif; font-size: clamp(45px, 7vw, 85px); line-height: 0.9; letter-spacing: -4px; margin-bottom: 20px; }
-        .hero h1 span { color: #0ea5e9; }
-        .hero h2 { font-size: 22px; color: #334155; margin-bottom: 20px; font-weight: 600; }
-        .hero p { font-size: 17px; color: #64748b; max-width: 550px; margin-bottom: 30px; }
-        .profile-wrap { position: relative; width: 100%; max-width: 420px; aspect-ratio: 4/5; }
-        .profile { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; border: 6px solid #fff; box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+<meta property="og:image"
+content="Foto.jpg">
 
-        /* EXPERIENCIA Y LIDERAZGO SINTETIZADOS */
-        .card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; flex-wrap: wrap; }
-        .card-header h3 { font-size: 19px; font-weight: 700; color: #0f172a; }
-        .date-badge { font-size: 12px; font-weight: 700; color: #0ea5e9; background: rgba(14,165,233,0.1); padding: 4px 12px; border-radius: 20px; }
-        .card-subtext { font-size: 14px; font-weight: 600; color: #64748b; margin-bottom: 12px; display: block; }
-        
-        .bullet-list { list-style: none; }
-        .bullet-list li { position: relative; padding-left: 20px; font-size: 14.5px; color: #475569; margin-bottom: 6px; }
-        .bullet-list li::before { content: "→"; position: absolute; left: 0; color: #0ea5e9; font-weight: 800; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* HABILIDADES TÉCNICAS MEJORADAS */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .skill-item { margin-bottom: 20px; }
-        .skill-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .skill-info strong { font-size: 15px; color: #0f172a; }
-        .skill-info span { font-size: 13px; font-weight: 800; color: #0ea5e9; }
-        
-        .progress-bar-bg { width: 100%; height: 8px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
-        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #0ea5e9, #2563eb); border-radius: 10px; transition: width 1.5s ease-in-out; }
-        .skill-desc { font-size: 13px; color: #64748b; margin-top: 8px; font-style: italic; }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 
-        /* COMUNICACIÓN E IDIOMAS */
-        .extra-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
-        .tag-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-        .pill { background: #fff; border: 1px solid rgba(15,23,42,0.08); padding: 6px 14px; border-radius: 50px; font-size: 12px; font-weight: 700; color: #334155; }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-        /* PROYECTOS CARRUSEL */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px; }
-        .project-card { border-radius: 24px; overflow: hidden; background: #fff; box-shadow: 0 15px 40px rgba(0,0,0,0.04); }
-        .carousel-container { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; }
-        .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .carousel-track img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
+<link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 
-        /* MODAL */
-        .pdf-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.6); backdrop-filter: blur(8px); z-index: 2000; justify-content: center; align-items: center; }
-        .pdf-modal.active { display: flex; }
-        .modal-content { background: white; width: 90%; max-width: 1000px; height: 85vh; border-radius: 24px; overflow: hidden; }
-        iframe { width: 100%; height: 100%; border: none; }
+<style>
 
-        /* ANIMACIONES */
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-        
-        /* RESPONSIVE */
-        @media (max-width: 968px) {
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero p { margin: 0 auto 30px; }
-            .profile-wrap { margin: 0 auto; }
-            .extra-skills { grid-template-columns: 1fr; }
-            .section-title { font-size: 30px; }
-        }
-    </style>
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#eef4f8;
+    color:#0f172a;
+    overflow-x:hidden;
+}
+
+/* FONDO */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:
+    linear-gradient(
+    rgba(247,250,252,.92),
+    rgba(240,248,255,.95)
+    ),
+    url('Fondo.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    z-index:-5;
+}
+
+/* GRID */
+
+.grid{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-4;
+    background-image:
+    linear-gradient(
+    rgba(14,165,233,.04) 1px,
+    transparent 1px
+    ),
+    linear-gradient(
+    90deg,
+    rgba(14,165,233,.04) 1px,
+    transparent 1px
+    );
+    background-size:70px 70px;
+    animation:gridMove 24s linear infinite;
+    will-change: transform;
+}
+
+/* BLOBS */
+
+.blob{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.10;
+    z-index:-3;
+    animation:float 10s ease-in-out infinite;
+    will-change: transform;
+}
+
+.blob1{
+    width:350px;
+    height:350px;
+    background:#38bdf8;
+    top:-120px;
+    left:-80px;
+}
+
+.blob2{
+    width:280px;
+    height:280px;
+    background:#2563eb;
+    bottom:-90px;
+    right:-50px;
+    animation-delay:2s;
+}
+
+/* NAV */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(15,23,42,.05);
+}
+
+.nav-container{
+    width:92%;
+    max-width:1350px;
+    margin:auto;
+    padding:16px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:28px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#334155;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#0ea5e9;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:120px 0 50px; 
+}
+
+.hero-container{
+    width:92%;
+    max-width:1350px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:70px;
+    align-items:center;
+}
+
+/* HERO LEFT */
+
+.mini-label{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    border-radius:50px;
+    background:rgba(255,255,255,.78);
+    border:1px solid rgba(15,23,42,.05);
+    backdrop-filter:blur(12px);
+    margin-bottom:28px;
+    font-size:13px;
+    font-weight:700;
+    color:#0369a1;
+}
+
+.hero h1{
+    font-family:'Sora',sans-serif;
+    font-size:clamp(58px,9vw,96px);
+    line-height:.9;
+    letter-spacing:-5px;
+    margin-bottom:24px;
+    font-weight:800;
+}
+
+.hero h1 span{
+    color:#0ea5e9;
+}
+
+.hero h2{
+    font-size:25px;
+    color:#334155;
+    margin-bottom:24px;
+    font-weight:600;
+}
+
+.hero p{
+    max-width:700px;
+    color:#475569;
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:35px;
+}
+
+.coords{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:35px;
+    font-size:14px;
+    color:#475569;
+    letter-spacing:2px;
+}
+
+/* BOTONES */
+
+.buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 30px;
+    border-radius:16px;
+    text-decoration:none;
+    font-weight:700;
+    transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.btn-primary{
+    background:linear-gradient(
+    135deg,
+    #0ea5e9,
+    #2563eb
+    );
+    color:white;
+    box-shadow:
+    0 20px 45px rgba(37,99,235,.18);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+}
+
+.btn-secondary{
+    background:white;
+    color:#0f172a;
+    border:1px solid rgba(15,23,42,.08);
+}
+
+.btn-secondary:hover{
+    transform:translateY(-4px);
+}
+
+/* TAGS */
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:45px;
+}
+
+.tag{
+    padding:10px 18px;
+    border-radius:40px;
+    background:white;
+    border:1px solid rgba(15,23,42,.05);
+    font-size:13px;
+    font-weight:700;
+    color:#0f172a;
+    transition:.3s;
+}
+
+.tag:hover{
+    transform:translateY(-4px);
+    background:#0ea5e9;
+    color:white;
+}
+
+/* STATS */
+
+.stats{
+    display:flex;
+    gap:22px;
+    margin-top:50px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    background:rgba(255,255,255,.80);
+    backdrop-filter:blur(14px);
+    border-radius:24px;
+    padding:24px;
+    min-width:180px;
+    box-shadow:
+    0 18px 40px rgba(15,23,42,.05);
+}
+
+.stat h3{
+    font-size:34px;
+    color:#0ea5e9;
+    margin-bottom:8px;
+}
+
+.stat p{
+    font-size:14px;
+    line-height:1.5;
+    margin:0;
+}
+
+/* HERO RIGHT */
+
+.hero-right{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.profile-wrap{
+    position:relative;
+    width:470px;
+    height:600px;
+}
+
+.profile{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 15%;
+    border-radius:40px;
+    border:8px solid rgba(255,255,255,.92);
+    box-shadow:
+    0 35px 70px rgba(15,23,42,.14);
+}
+
+/* SOFTWARE */
+
+.software{
+    position:absolute;
+    width:95px;
+    height:95px;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(14px);
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:
+    0 20px 45px rgba(15,23,42,.08);
+    animation:floatIcon 6s ease-in-out infinite;
+    will-change: transform;
+    transition:.4s ease;
+}
+
+.software:hover{
+    transform:
+    translateY(-8px)
+    scale(1.08);
+    box-shadow:
+    0 20px 45px rgba(14,165,233,.18);
+}
+
+.software img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    transition:.4s ease;
+}
+
+.software:hover img{
+    transform:rotate(6deg);
+}
+
+.software1{ top:-30px; left:-50px; }
+.software2{ top:70px; right:-70px; animation-delay:1s; }
+.software3{ top:250px; left:-90px; animation-delay:2s; }
+.software4{ bottom:120px; right:-80px; animation-delay:3s; }
+.software5{ bottom:-20px; left:-20px; animation-delay:4s; }
+.software6{ bottom:20px; right:20px; animation-delay:5s; }
+
+/* FLOAT CARDS */
+
+.float-card{
+    position:absolute;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(15,23,42,.05);
+    padding:14px 20px;
+    border-radius:20px;
+    box-shadow:
+    0 20px 45px rgba(15,23,42,.08);
+    animation:floatCard 5s ease-in-out infinite;
+    will-change: transform;
+    font-size:13px;
+    font-weight:700;
+}
+
+.float-card i{
+    color:#0ea5e9;
+    margin-right:10px;
+}
+
+.card1{ top:40px; left:-130px; }
+.card2{ bottom:50px; right:-140px; animation-delay:2s; }
+.card3{ top:50%; right:-130px; animation-delay:4s; }
+
+/* SECCIONES GENERALES */
+
+section{ padding:50px 0; }
+
+.container{
+    width:92%;
+    max-width:1280px;
+    margin:auto;
+}
+
+.section-title{
+    font-family:'Sora',sans-serif;
+    font-size:52px;
+    margin-bottom:45px;
+    font-weight:800;
+    letter-spacing:-2px;
+}
+
+/* CARDS */
+
+.card{
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(15,23,42,.05);
+    border-radius:28px;
+    padding:34px;
+    margin-bottom:24px;
+    transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+    box-shadow:
+    0 18px 40px rgba(15,23,42,.05);
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+/* ESTILOS PARA LISTAS DE EXPERIENCIA/EDUCACIÓN */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card-header h3 {
+    font-size: 22px;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.card-header .date-label {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.card-location {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-list {
+    list-style: none;
+}
+
+.card-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #475569;
+}
+
+.card-list li::before {
+    content: "•";
+    color: #0ea5e9;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* HABILIDADES (Ajustes solicitados) */
+
+.skills{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap:24px;
+}
+
+.skill{
+    background:white;
+    padding:32px;
+    border-radius:28px;
+    transition:.3s ease;
+    box-shadow: 0 18px 40px rgba(15,23,42,.05);
+}
+
+.skill:hover{
+    transform:translateY(-4px);
+}
+
+.skill-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+/* Ajuste para acomodar el porcentaje */
+.skill-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.skill-percent {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0ea5e9;
+    margin-top: 4px;
+}
+
+.skill-top i{
+    font-size:24px;
+    color:#0ea5e9;
+}
+
+.bar{
+    width:100%;
+    height:10px;
+    background:#dbeafe;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:18px;
+}
+
+.progress{
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(to right, #0ea5e9, #2563eb);
+}
+
+/* Separación del texto a la barra */
+.skill p {
+    margin-top: 20px;
+    color: #475569;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* PROYECTOS */
+
+.projects{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(480px,1fr));
+    gap:34px;
+}
+
+.project{
+    overflow:hidden;
+    background:white;
+    border-radius:32px;
+    box-shadow: 0 20px 45px rgba(15,23,42,.06);
+    transition:.3s ease;
+}
+
+.project:hover{
+    transform:translateY(-4px);
+}
+
+.project > img,
+.carousel-container {
+    width:100%;
+    aspect-ratio:1.414/1;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.project:hover > img,
+.project:hover .carousel-track img {
+    transform:scale(1.03);
+}
+
+.carousel-container {
+    position:relative;
+    overflow:hidden;
+}
+
+.carousel-track {
+    display:flex;
+    width:100%;
+    height:100%;
+    transition:transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-track img {
+    width:100%;
+    height:100%;
+    flex-shrink:0;
+    object-fit:cover;
+    transition:transform 0.5s;
+}
+
+.carousel-indicators {
+    position:absolute;
+    bottom:16px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:8px;
+    z-index:10;
+}
+
+.dot {
+    width:10px;
+    height:10px;
+    background:rgba(255,255,255,0.4);
+    border-radius:50%;
+    transition:0.3s ease;
+    cursor:pointer;
+}
+
+.dot.active {
+    background:white;
+    transform:scale(1.2);
+}
+
+.project-content{ padding:28px; }
+
+.project-category{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:30px;
+    background:rgba(14,165,233,.10);
+    color:#0284c7;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.project-location{
+    display:block;
+    margin-top:8px;
+    margin-bottom:18px;
+    color:#64748b;
+    font-size:14px;
+}
+
+.project-content p{
+    line-height:1.8;
+    color:#475569;
+}
+
+.project-features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:24px;
+    margin-bottom:24px;
+}
+
+.feature{
+    background:#f8fbfd;
+    border:1px solid rgba(15,23,42,.05);
+    padding:14px;
+    border-radius:18px;
+    font-size:13px;
+    font-weight:600;
+    color:#334155;
+    line-height:1.5;
+}
+
+.feature i{
+    color:#0ea5e9;
+    margin-right:8px;
+}
+
+.project-tools{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:10px;
+}
+
+.project-tools span{
+    padding:10px 14px;
+    border-radius:30px;
+    background:#eef6fb;
+    color:#0369a1;
+    font-size:12px;
+    font-weight:700;
+}
+
+/* SECCIÓN: CONSTANCIAS Y CERTIFICACIONES */
+
+.certificates-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.certificate-card{
+    background:white;
+    border:1px solid rgba(15,23,42,.05);
+    border-radius:28px;
+    box-shadow:0 18px 40px rgba(15,23,42,.05);
+    transition:.3s ease;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.certificate-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(14,165,233,.2);
+    box-shadow:0 22px 45px rgba(15,23,42,.08);
+}
+
+.cert-preview {
+    width:100%;
+    height:180px;
+    overflow:hidden;
+    background:#e2e8f0;
+    border-bottom:1px solid rgba(15,23,42,.05);
+}
+
+.cert-preview img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
+    transition:transform .5s ease;
+}
+
+.certificate-card:hover .cert-preview img {
+    transform:scale(1.04);
+}
+
+.cert-content {
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    flex-grow:1;
+}
+
+.cert-icon{
+    font-size:22px;
+    color:#0ea5e9;
+    margin-bottom:14px;
+}
+
+.cert-header-line {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.cert-year{
+    display:inline-block;
+    padding:5px 12px;
+    border-radius:12px;
+    background:rgba(14,165,233,.1);
+    color:#0284c7;
+    font-size:12px;
+    font-weight:700;
+}
+
+.cert-title{
+    font-size:18px;
+    font-weight:700;
+    color:#0f172a;
+    margin-bottom:8px;
+    line-height:1.4;
+}
+
+.cert-issuer{
+    font-size:13px;
+    color:#64748b;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.cert-desc{
+    font-size:13px;
+    color:#475569;
+    line-height:1.6;
+    margin-bottom:24px;
+}
+
+.btn-cert{
+    font-size:13px;
+    font-weight:700;
+    color:#0ea5e9;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:.2s;
+    margin-top:auto;
+}
+
+.certificate-card:hover .btn-cert{
+    color:#2563eb;
+}
+
+/* ESTRUCTURA DEL MODAL */
+
+.pdf-modal {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(15,23,42,0.4);
+    backdrop-filter:blur(10px);
+    z-index:2000;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    transition:opacity 0.3s ease;
+}
+
+.pdf-modal.active {
+    display:flex;
+    opacity:1;
+}
+
+.modal-content {
+    background:white;
+    width:90%;
+    max-width:1000px;
+    height:85vh;
+    border-radius:28px;
+    box-shadow:0 35px 70px rgba(15,23,42,.15);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transform:scale(0.92);
+    transition:transform 0.3s ease;
+}
+
+.pdf-modal.active .modal-content {
+    transform:scale(1);
+}
+
+.modal-header {
+    padding:20px 28px;
+    background:#f8fbfd;
+    border-bottom:1px solid rgba(15,23,42,.05);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.modal-title-wrapper {
+    max-width:80%;
+}
+
+.modal-title {
+    font-family:'Sora',sans-serif;
+    font-size:16px;
+    font-weight:700;
+    color:#0f172a;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.modal-close-btn {
+    background:none;
+    border:none;
+    font-size:22px;
+    color:#64748b;
+    cursor:pointer;
+    transition:.2s;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-close-btn:hover {
+    background:rgba(15,23,42,.05);
+    color:#ef4444;
+}
+
+.modal-body {
+    flex:1;
+    background:#eef4f8;
+    position:relative;
+}
+
+.modal-body iframe {
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px;
+    text-align:center;
+    color:#64748b;
+    border-top:1px solid rgba(15,23,42,.06);
+    margin-top:20px;
+}
+
+/* ANIMACIONES */
+
+@keyframes float{
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-25px); }
+    100%{ transform:translateY(0px); }
+}
+
+@keyframes floatCard{
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-10px); }
+    100%{ transform:translateY(0px); }
+}
+
+@keyframes floatIcon{
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-15px); }
+    100%{ transform:translateY(0px); }
+}
+
+@keyframes gridMove{
+    from{ transform:translateY(0); }
+    to{ transform:translateY(70px); }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:980px){
+    .hero-container{ grid-template-columns:1fr; }
+    .profile-wrap{ width:340px; height:450px; }
+}
+
+@media(max-width:768px){
+    nav ul{ display:none; }
+    .hero h1{ font-size:52px; }
+    .profile-wrap{ width:290px; height:380px; }
+    .float-card{ display:none; }
+    .projects{ grid-template-columns:1fr; }
+    .project-features{ grid-template-columns:1fr; }
+    .modal-content { height: 75vh; width: 95%; }
+}
+
+</style>
+
 </head>
 
 <body>
-    <div class="bg"></div>
-    <div class="grid"></div>
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
 
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Carlos Álvarez Monjaraz</div>
-            <ul>
-                <li><a href="#perfil">Perfil</a></li>
-                <li><a href="#trayectoria">Trayectoria</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#constancias">Constancias</a></li>
+<div class="bg"></div>
+<div class="grid"></div>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<nav>
+<div class="nav-container">
+<div class="logo">Carlos Álvarez Monjaraz</div>
+<ul>
+<li><a href="#perfil">Perfil</a></li>
+<li><a href="#educacion">Educación</a></li>
+<li><a href="#experiencia">Experiencia</a></li>
+<li><a href="#liderazgo">Liderazgo</a></li>
+<li><a href="#habilidades">Habilidades</a></li>
+<li><a href="#proyectos">Proyectos</a></li>
+<li><a href="#constancias">Constancias</a></li>
+</ul>
+</div>
+</nav>
+
+<header class="hero">
+<div class="hero-container">
+
+<div data-aos="fade-right">
+<div class="mini-label">
+<i class="fa-solid fa-location-dot"></i>
+Coyoacán · Ciudad de México
+</div>
+
+<h1>
+Carlos
+<br>
+Álvarez
+<br>
+<span>Monjaraz</span>
+</h1>
+
+<h2>Urbanismo · Planeación Territorial · Diseño Urbano · SIG</h2>
+
+<p>
+Urbanista especializado en análisis espacial,
+planeación territorial y representación cartográfica.
+</p>
+
+<div class="coords">
+<i class="fa-solid fa-globe"></i>
+19.3467° N · 99.1617° W
+</div>
+
+<div class="buttons">
+<a href="#proyectos" class="btn btn-primary">Explorar proyectos</a>
+<a href="CV_Carlos_Alvarez.pdf" class="btn btn-secondary" target="_blank">Descargar CV</a>
+</div>
+
+<div class="tags">
+<div class="tag">SIG</div>
+<div class="tag">Movilidad</div>
+<div class="tag">Planeación</div>
+<div class="tag">Diseño Urbano</div>
+<div class="tag">Cartografía</div>
+</div>
+
+<div class="stats">
+<div class="stat">
+<h3>12+</h3>
+<p>Proyectos urbanos y territoriales</p>
+</div>
+<div class="stat">
+<h3>6</h3>
+<p>Herramientas SIG y análisis espacial</p>
+</div>
+<div class="stat">
+<h3>4</h3>
+<p>Áreas de especialización urbana</p>
+</div>
+</div>
+</div>
+
+<div class="hero-right" data-aos="fade-left">
+<div class="profile-wrap">
+<img src="Foto.jpg" class="profile">
+
+<div class="software software1"><img src="Logo Qgis.png"></div>
+<div class="software software2"><img src="Logo Arcgis.png"></div>
+<div class="software software3"><img src="Logo Autocad.png"></div>
+<div class="software software4"><img src="Logo Ai.png"></div>
+<div class="software software5"><img src="Logo Excel.png"></div>
+<div class="software software6"><img src="Logo PS.png"></div>
+
+<div class="float-card card1">
+<i class="fa-solid fa-map-location-dot"></i>
+SIG y Cartografía
+</div>
+
+<div class="float-card card2">
+<i class="fa-solid fa-city"></i>
+Planeación Territorial
+</div>
+
+<div class="float-card card3">
+<i class="fa-solid fa-chart-line"></i>
+Análisis Espacial
+</div>
+
+</div>
+</div>
+
+</div>
+</header>
+
+<section id="perfil">
+<div class="container">
+<h2 class="section-title">Perfil Profesional</h2>
+<div class="card">
+<p>
+Urbanista en formación con experiencia en análisis territorial, evaluación de proyectos urbanos y planeación estratégica. Manejo de herramientas SIG, análisis espacial y representación cartográfica aplicada a dinámicas urbanas contemporáneas.
+</p>
+</div>
+</div>
+</section>
+
+<section id="educacion">
+    <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Educación</h2>
+        <div class="card">
+            <div class="card-header">
+                <h3>Universidad Nacional Autónoma de México (UNAM)</h3>
+                <span class="date-label">Septiembre 2021 – Actual (Sept. 2026)</span>
+            </div>
+            <div class="card-location">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Facultad de Arquitectura, Licenciatura en Urbanismo | Ciudad Universitaria, CDMX
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="experiencia">
+    <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Experiencia Profesional</h2>
+
+        <div class="card" style="margin-bottom: 30px;">
+            <div class="card-header">
+                <h3>Comisión de Recursos Naturales y Desarrollo Rural (CORENADR)</h3>
+                <span class="date-label">Enero 2024 – Junio 2024</span>
+            </div>
+            <div class="card-location">
+                <i class="fa-solid fa-briefcase"></i>
+                Xochimilco, Ciudad de México
+            </div>
+            <ul class="card-list">
+                <li>Evaluación de aptitud territorial en suelo de conservación integrando el marco normativo ambiental (LGAHOTDU, NOM-001-SEDATU).</li>
+                <li>Generación de cartografía temática y estructuración técnica del Anteproyecto Farmacia Viviente en Santiago Tepalcatlalpan.</li>
+                <li>Identificación estratégica de Áreas Naturales Protegidas y de Valor Ambiental para integrar criterios de diseño paisajístico de bajo impacto.</li>
             </ul>
         </div>
-    </nav>
 
-    <header class="hero">
-        <div class="hero-container">
-            <div data-aos="fade-right">
-                <h1>Carlos<br>Álvarez <span>Monjaraz</span></h1>
-                <h2>Urbanista | Especialista en SIG y Planeación Territorial</h2>
-                <p>Especializado en análisis geoespacial, gestión de riesgos metropolitanos y diseño urbano resiliente con enfoque técnico-normativo.</p>
-                <div class="tag-container">
-                    <span class="pill"><i class="fa-solid fa-location-dot"></i> CDMX</span>
-                    <span class="pill">QGIS</span>
-                    <span class="pill">ArcGIS</span>
-                    <span class="pill">Planeación</span>
-                </div>
+        <div class="card" style="margin-bottom: 30px;">
+            <div class="card-header">
+                <h3>Taller de Diseño y Gestión + Ciudades A.C. (Becario)</h3>
+                <span class="date-label">Mayo 2023 – Diciembre 2025</span>
             </div>
-            <div class="profile-wrap" data-aos="fade-left">
-                <img src="Foto.jpg" class="profile" alt="Carlos Álvarez">
+            <div class="card-location">
+                <i class="fa-solid fa-briefcase"></i>
+                Acapulco de Juárez, Guerrero – Ciudad de México
+            </div>
+            <ul class="card-list">
+                <li>Elaboración de diagnóstico urbano y de saneamiento metropolitano mediante análisis de isocronas y SIG.</li>
+                <li>Evaluación financiera y de riesgos (cálculo de VPN, TIR, Relación Beneficio-Costo) para viabilidad de inversión en infraestructura.</li>
+                <li>Aplicación del marco normativo sectorial para la recuperación urbana post-Otis bajo el Convenio CAPAMA - CONAGUA.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Facultad de Arquitectura, UNAM (Asistente Técnico)</h3>
+                <span class="date-label">Febrero 2026 – Actual</span>
+            </div>
+            <div class="card-location">
+                <i class="fa-solid fa-briefcase"></i>
+                Coordinación de la Licenciatura en Urbanismo | Ciudad Universitaria, CDMX
+            </div>
+            <ul class="card-list">
+                <li>Sistematización documental y actualización de programas analíticos de asignatura conforme a lineamientos de evaluación académica.</li>
+                <li>Análisis de indicadores de calidad educativa y coherencia curricular para el proceso de acreditación ante ANPADEH A.C.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="liderazgo">
+    <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Participaciones y Liderazgo</h2>
+        
+        <div class="card" style="margin-bottom: 30px;">
+            <div class="card-header">
+                <h3>Mesa de Trabajo Técnica - Proyecto PGOT CDMX</h3>
+                <span class="date-label">Diciembre 2022</span>
+            </div>
+            <div class="card-location">
+                <i class="fa-solid fa-users-viewfinder"></i>
+                Instituto de Planeación Democrática y Prospectiva (IPDP) | Tláhuac, CDMX
+            </div>
+            <ul class="card-list">
+                <li>Participación en la consulta pública de Ordenamiento Territorial, formulando y presentando propuestas técnicas y ciudadanas ante autoridades.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Ponente: Participación Social y Urbanismo</h3>
+                <span class="date-label">Abril 2025</span>
+            </div>
+            <div class="card-location">
+                <i class="fa-solid fa-microphone-lines"></i>
+                Facultad de Arquitectura, UNAM
+            </div>
+            <ul class="card-list">
+                <li>Exposición sobre modelos internacionales de planificación urbana con un enfoque centrado en la inclusión y gobernanza territorial.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="habilidades">
+<div class="container">
+<h2 class="section-title">Habilidades Técnicas</h2>
+
+<div class="skills">
+
+<div class="skill">
+<div class="skill-top">
+    <div class="skill-title-wrapper">
+        <strong>SIG y Cartografía</strong>
+        <span class="skill-percent">95%</span>
+    </div>
+    <i class="fa-solid fa-map"></i>
+</div>
+<div class="bar">
+    <div class="progress" style="width:95%;"></div>
+</div>
+<p>
+QGIS · ArcGIS · análisis espacial · cartografía temática · modelación territorial.
+</p>
+</div>
+
+<div class="skill">
+<div class="skill-top">
+    <div class="skill-title-wrapper">
+        <strong>Análisis Territorial</strong>
+        <span class="skill-percent">88%</span>
+    </div>
+    <i class="fa-solid fa-chart-column"></i>
+</div>
+<div class="bar">
+    <div class="progress" style="width:88%;"></div>
+</div>
+<p>
+GeoDa · Excel · análisis urbano · estadística espacial · evaluación territorial.
+</p>
+</div>
+
+<div class="skill">
+<div class="skill-top">
+    <div class="skill-title-wrapper">
+        <strong>Diseño Urbano</strong>
+        <span class="skill-percent">82%</span>
+    </div>
+    <i class="fa-solid fa-city"></i>
+</div>
+<div class="bar">
+    <div class="progress" style="width:82%;"></div>
+</div>
+<p>
+AutoCAD · Illustrator · Photoshop · representación gráfica urbana.
+</p>
+</div>
+
+<div class="skill">
+<div class="skill-top">
+    <div class="skill-title-wrapper">
+        <strong>Comunicación Técnica</strong>
+        <span class="skill-percent">90%</span>
+    </div>
+    <i class="fa-solid fa-pen-nib"></i>
+</div>
+<div class="bar">
+    <div class="progress" style="width:90%;"></div>
+</div>
+<p>
+Paquetería Office · Redacción de Informes Técnicos · Diagramación de Láminas de Presentación.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="proyectos">
+<div class="container">
+<h2 class="section-title">Proyectos Destacados</h2>
+
+<div class="projects">
+
+<div class="project">
+    <div class="carousel-container">
+        <div class="carousel-track" id="acapulco-track">
+            <img src="Acapulco Propuestas.jpg" alt="Acapulco Propuestas" loading="lazy">
+            <img src="Acapulco Isocronas.jpg" alt="Acapulco Isocronas" loading="lazy">
+            <img src="Acapulco Estrategias.jpg" alt="Acapulco Estrategias" loading="lazy">
+        </div>
+        <div class="carousel-indicators">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+    <div class="project-content">
+        <div class="project-category">Planeación Metropolitana</div>
+        <h3>Mejoramiento y Recuperación Urbana: Equipamiento y Servicios Ecosistémicos</h3>
+        <span class="project-location">Zona Metropolitana de Acapulco · Guerrero</span>
+        <p>
+            Análisis de cobertura y cálculo de déficit de equipamiento urbano (salud, educación y recreación) tras el impacto del huracán Otis. La propuesta define estrategias de localización y dotación fundamentadas en el marco normativo (LGAHOTDU, NOM-002-SEDATU) e información sociodemográfica (INEGI) para fortalecer la resiliencia metropolitana.
+        </p>
+        <div class="project-features">
+            <div class="feature">
+                <i class="fa-solid fa-map-location-dot"></i> Análisis de Isocronas y Cobertura
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-scale-balanced"></i> Aplicación Normativa (SEDATU / PMDU)
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-house-medical-flag"></i> Equipamiento Resiliente y Servicios Ecosistémicos
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-file-invoice-dollar"></i> Viabilidad y Valores Unitarios de Construcción
             </div>
         </div>
-    </header>
-
-    <section id="perfil">
-        <div class="container" data-aos="fade-up">
-            <div class="card">
-                <p style="font-size: 18px; color: #334155; font-weight: 500;">Urbanista con experiencia en análisis territorial estratégico y evaluación de proyectos urbanos complejos. Experto en modelación espacial y representación cartográfica aplicada a la gestión pública y resiliencia urbana.</p>
-            </div>
+        <div class="project-tools">
+            <span>QGIS</span>
+            <span>Planeación Metropolitana</span>
+            <span>Gestión de Riesgo</span>
+            <span>Análisis Espacial</span>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section id="trayectoria">
-        <div class="container">
-            <h2 class="section-title">Trayectoria Profesional</h2>
+<div class="project">
+<img src="farmacia1.jpg" loading="lazy">
+<div class="project-content">
+<div class="project-category">Diseño Urbano y Paisaje</div>
+<h3>Farmacia Viviente</h3>
+<span class="project-location">Xochimilco · Ciudad de México</span>
+<p>
+Diagnóstico territorial, análisis normativo y propuesta urbano-paisajística mediante herramientas SIG y análisis espacial.
+</p>
+<div class="project-tools">
+<span>QGIS</span>
+<span>AutoCAD</span>
+<span>Urbanismo</span>
+</div>
+</div>
+</div>
+
+<div class="project">
+<img src="farmacia2.jpg" loading="lazy">
+<div class="project-content">
+<div class="project-category">Planeación Territorial</div>
+<h3>Evaluación Territorial y Urbana</h3>
+<span class="project-location">Ciudad de México</span>
+<p>
+Evaluación urbana y análisis territorial para proyectos urbanos y regionales integrando cartografía temática y análisis espacial.
+</p>
+<div class="project-tools">
+<span>ArcGIS</span>
+<span>Cartografía</span>
+<span>Análisis Espacial</span>
+</div>
+</div>
+</div>
+
+<div class="project">
+<img src="Rediseño intersección.jpg" loading="lazy">
+<div class="project-content">
+<div class="project-category">Movilidad y Espacio Público</div>
+<h3>Rediseño de la intersección Corina – San Pedro – Cuauhtémoc, Coyoacán, CDMX</h3>
+<span class="project-location">Inmediaciones de la Preparatoria No. 6 UNAM · CDMX</span>
+<p>
+Propuesta de rediseño integral del cruce urbano a partir del análisis de complejidad vial y los resultados obtenidos mediante participación comunitaria con población estudiantil.
+La intervención reorganiza el espacio público para mejorar la movilidad peatonal, reducir conflictos viales y optimizar el funcionamiento del nodo urbano.
+</p>
+<div class="project-features">
+<div class="feature">
+<i class="fa-solid fa-person-walking"></i> Ampliación de banquetas y accesibilidad universal
+</div>
+<div class="feature">
+<i class="fa-solid fa-road"></i> Implementación de orejas y radios normativos
+</div>
+<div class="feature">
+<i class="fa-solid fa-tree"></i> Infraestructura verde y recuperación de espacio público
+</div>
+<div class="feature">
+<i class="fa-solid fa-bus"></i> Ordenamiento vial y ascenso-descenso
+</div>
+</div>
+<div class="project-tools">
+<span>AutoCAD</span>
+<span>Diseño Urbano</span>
+<span>Movilidad</span>
+<span>Espacio Público</span>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="constancias">
+    <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Constancias y Certificaciones</h2>
+        
+        <div class="certificates-grid">
             
-            <div class="card" data-aos="fade-up">
-                <div class="card-header">
-                    <h3>CORENADR | Suelo de Conservación</h3>
-                    <span class="date-badge">2024</span>
+            <div class="certificate-card" onclick="openModal('Constancia_IPDP.pdf', 'Mesa Técnica IPDP')">
+                <div class="cert-preview">
+                    <img src="Constancia_IPDP.jpg" loading="lazy" alt="Constancia IPDP">
                 </div>
-                <span class="card-subtext">Analista Territorial - Proyecto Farmacia Viviente</span>
-                <ul class="bullet-list">
-                    <li>Evaluación de aptitud territorial y normativa ambiental (LGAHOTDU/NOM-001).</li>
-                    <li>Generación de cartografía técnica para polígonos de valor ambiental en Xochimilco.</li>
-                    <li>Identificación estratégica de Áreas Naturales Protegidas para diseño paisajístico.</li>
-                </ul>
+                <div class="cert-content">
+                    <i class="fa-solid fa-award cert-icon"></i>
+                    <div class="cert-header-line">
+                        <span class="cert-year">2022</span>
+                    </div>
+                    <h4 class="cert-title">Mesa de Trabajo Proyecto PGOT</h4>
+                    <span class="cert-issuer">Instituto de Planeación Democrática y Prospectiva (IPDP)</span>
+                    <p class="cert-desc">Participación en la consulta pública de Ordenamiento Territorial.</p>
+                    <span class="btn-cert">Ver Constancia <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
             </div>
 
-            <div class="card" data-aos="fade-up">
-                <div class="card-header">
-                    <h3>Taller de Diseño y Gestión + Ciudades A.C.</h3>
-                    <span class="date-badge">2023 - 2025</span>
+            <div class="certificate-card" onclick="openModal('Constancias Farmacias.pdf', 'Constancia Farmacia Viviente')">
+                <div class="cert-preview">
+                    <img src="Constancias Farmacias.jpg" loading="lazy" alt="Constancia CORENADR">
                 </div>
-                <span class="card-subtext">Becario de Planeación - Convenio CAPAMA/CONAGUA</span>
-                <ul class="bullet-list">
-                    <li>Diagnóstico de saneamiento metropolitano mediante análisis de isocronas y SIG.</li>
-                    <li>Evaluación financiera de proyectos (VPN/TIR) y cálculo de indicadores de rentabilidad.</li>
-                    <li>Manejo de marco normativo sectorial para la recuperación urbana post-Otis en Acapulco.</li>
-                </ul>
+                <div class="cert-content">
+                    <i class="fa-solid fa-award cert-icon"></i>
+                    <div class="cert-header-line">
+                        <span class="cert-year">2024</span>
+                    </div>
+                    <h4 class="cert-title">Proyecto Farmacia Viviente</h4>
+                    <span class="cert-issuer">CORENADR CDMX</span>
+                    <p class="cert-desc">Participación técnica en el anteproyecto en Suelo de Conservación.</p>
+                    <span class="btn-cert">Ver Constancia <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
             </div>
 
-            <div class="card" data-aos="fade-up">
-                <div class="card-header">
-                    <h3>Facultad de Arquitectura, UNAM</h3>
-                    <span class="date-badge">2026 - Actual</span>
-                </div>
-                <span class="card-subtext">Asistente Técnico - Acreditación ANPADEH</span>
-                <ul class="bullet-list">
-                    <li>Sistematización documental y actualización de programas analíticos de la Lic. en Urbanismo.</li>
-                    <li>Análisis de indicadores de coherencia curricular para acreditación nacional de calidad.</li>
-                </ul>
-            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="liderazgo">
-        <div class="container">
-            <h2 class="section-title">Participaciones y Liderazgo</h2>
-            
-            <div class="card" data-aos="fade-up" style="border-left: 5px solid #0ea5e9;">
-                <div class="card-header">
-                    <h3>Mesa de Trabajo PGOT CDMX</h3>
-                    <span class="date-badge">Diciembre 2022</span>
-                </div>
-                <span class="card-subtext">IPDP CDMX - Consulta Pública de Ordenamiento Territorial</span>
-                <p style="font-size: 14px; color: #475569;">Participación técnica en la mesa de Tláhuac, presentando propuestas ciudadanas y académicas para el Proyecto del Programa General de Ordenamiento Territorial.</p>
+<div id="pdfModal" class="pdf-modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <div class="modal-title-wrapper">
+                <h3 class="modal-title" id="modalTitle">Documento</h3>
             </div>
-
-            <div class="card" data-aos="fade-up" style="border-left: 5px solid #2563eb;">
-                <div class="card-header">
-                    <h3>Ponente: Participación Social y Urbanismo</h3>
-                    <span class="date-badge">Abril 2025</span>
-                </div>
-                <span class="card-subtext">Facultad de Arquitectura, UNAM</span>
-                <p style="font-size: 14px; color: #475569;">Exposición sobre modelos internacionales de planificación urbana con enfoque en inclusión y gobernanza territorial.</p>
-            </div>
+            <button class="modal-close-btn" onclick="closeModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
-    </section>
-
-    <section id="habilidades">
-        <div class="container">
-            <h2 class="section-title">Capacidades Técnicas</h2>
-            <div class="card" data-aos="zoom-in">
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <strong>Sistemas de Información Geográfica (SIG)</strong>
-                            <span>95%</span>
-                        </div>
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: 95%;"></div>
-                        </div>
-                        <p class="skill-desc">QGIS, ArcGIS, Análisis Multinivel, Cartografía Temática.</p>
-                    </div>
-
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <strong>Análisis Espacial y Estadístico</strong>
-                            <span>88%</span>
-                        </div>
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: 88%;"></div>
-                        </div>
-                        <p class="skill-desc">GeoDa, Análisis Exploratorio de Datos, Modelos de Cobertura.</p>
-                    </div>
-
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <strong>Diseño y Representación Urbana</strong>
-                            <span>82%</span>
-                        </div>
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: 82%;"></div>
-                        </div>
-                        <p class="skill-desc">AutoCAD, Adobe Illustrator, Photoshop, InDesign.</p>
-                    </div>
-                </div>
-
-                <div class="extra-skills">
-                    <div>
-                        <h4 style="font-size: 14px; color: #0f172a; margin-bottom: 10px;">Comunicación Técnica</h4>
-                        <div class="tag-container">
-                            <span class="pill">Paquetería Office</span>
-                            <span class="pill">Redacción de Informes</span>
-                            <span class="pill">Láminas de Presentación</span>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 14px; color: #0f172a; margin-bottom: 10px;">Idiomas</h4>
-                        <div class="tag-container">
-                            <span class="pill">Español (Nativo)</span>
-                            <span class="pill">Inglés (Técnico)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="proyectos">
-        <div class="container">
-            <h2 class="section-title">Proyectos Destacados</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-aos="fade-right">
-                    <div class="carousel-container">
-                        <div class="carousel-track" id="track1">
-                            <img src="Acapulco Propuestas.jpg" alt="Acapulco">
-                            <img src="Acapulco Isocronas.jpg" alt="Isocronas">
-                            <img src="Acapulco Estrategias.jpg" alt="Estrategias">
-                        </div>
-                    </div>
-                    <div style="padding: 20px;">
-                        <span class="date-badge">Resiliencia</span>
-                        <h4 style="margin-top: 10px;">Planeación Metropolitana Acapulco (Post-Otis)</h4>
-                        <p style="font-size: 13px; color: #64748b; margin-top: 5px;">Análisis de servicios ecosistémicos y equipamiento urbano bajo la NOM-002-SEDATU.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-aos="fade-left">
-                    <img src="Rediseño intersección.jpg" style="width:100%; aspect-ratio:16/9; object-fit:cover;" alt="Rediseño">
-                    <div style="padding: 20px;">
-                        <span class="date-badge">Movilidad</span>
-                        <h4 style="margin-top: 10px;">Rediseño Intersección Coyoacán</h4>
-                        <p style="font-size: 13px; color: #64748b; margin-top: 5px;">Intervención de espacio público y seguridad vial en el entorno de Prepa 6 UNAM.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="constancias">
-        <div class="container">
-            <h2 class="section-title">Certificaciones</h2>
-            <div class="skills-grid">
-                <div class="card" onclick="openModal('Constancia_IPDP.pdf')" style="cursor:pointer; text-align: center;">
-                    <img src="Constancia_IPDP.jpg" style="width:100px; height:130px; object-fit:cover; border-radius:8px; margin-bottom:15px;" loading="lazy">
-                    <h4 style="font-size:14px;">Mesa Técnica IPDP</h4>
-                    <span class="btn-cert" style="font-size:12px; color:#0ea5e9; font-weight:700;">Ver PDF <i class="fa-solid fa-eye"></i></span>
-                </div>
-                <div class="card" onclick="openModal('Constancias Farmacias.pdf')" style="cursor:pointer; text-align: center;">
-                    <img src="Constancias Farmacias.jpg" style="width:100px; height:130px; object-fit:cover; border-radius:8px; margin-bottom:15px;" loading="lazy">
-                    <h4 style="font-size:14px;">PROYECTO CORENADR</h4>
-                    <span class="btn-cert" style="font-size:12px; color:#0ea5e9; font-weight:700;">Ver PDF <i class="fa-solid fa-eye"></i></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="pdfModal" class="pdf-modal" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-body">
             <iframe id="pdfFrame" src=""></iframe>
         </div>
     </div>
+</div>
 
-    <footer style="padding: 40px 0; text-align: center; color: #94a3b8; font-size: 12px;">
-        © 2026 Urb. Carlos Álvarez Monjaraz | Portafolio Profesional SIG
-    </footer>
+<footer>
+    <p>© 2026 Carlos Álvarez Monjaraz | Portafolio Profesional de Urbanismo y Planeación Territorial</p>
+</footer>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    // Inicializar Animaciones
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
 
-        /* CARRUSEL AUTOMÁTICO */
+    // Lógica del Carrusel
+    const track = document.getElementById('acapulco-track');
+    if (track) {
+        const dots = document.querySelectorAll('.dot');
         let index = 0;
-        setInterval(() => {
-            index = (index + 1) % 3;
-            const track = document.getElementById('track1');
-            if(track) track.style.transform = `translateX(-${index * 100}%)`;
-        }, 3500);
 
-        /* MODAL FUNCTIONS */
-        function openModal(url) {
-            document.getElementById('pdfFrame').src = url;
-            document.getElementById('pdfModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal() {
-            document.getElementById('pdfModal').classList.remove('active');
+        setInterval(() => {
+            index = (index + 1) % dots.length;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }, 3500);
+    }
+
+    // Lógica del Modal
+    function openModal(pdfUrl, title) {
+        document.getElementById('pdfFrame').src = pdfUrl;
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('pdfModal').classList.add('active');
+        document.body.style.overflow = 'hidden'; 
+    }
+
+    function closeModal() {
+        document.getElementById('pdfModal').classList.remove('active');
+        setTimeout(() => {
             document.getElementById('pdfFrame').src = "";
-            document.body.style.overflow = 'auto';
-        }
-    </script>
+        }, 300);
+        document.body.style.overflow = 'auto'; 
+    }
+</script>
+
 </body>
 </html>
