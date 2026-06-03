@@ -80,12 +80,11 @@ nav a:hover{ color:#0ea5e9; }
     backdrop-filter:blur(12px); margin-bottom:28px; font-size:13px; font-weight:700; color:#0369a1;
 }
 
-/* CORRECCIÓN DE NOMBRE ENCIMADO */
 .hero h1{
     font-family:'Sora',sans-serif;
     font-size:clamp(58px,9vw,96px);
-    line-height: 1.1; /* Aumentado para separar las líneas */
-    letter-spacing: -2px; /* Reducido para no juntar tanto las letras */
+    line-height: 1.1; 
+    letter-spacing: -2px; 
     margin-bottom:24px;
     font-weight:800;
 }
@@ -118,10 +117,10 @@ nav a:hover{ color:#0ea5e9; }
 .profile-wrap{ position:relative; width:470px; height:600px; }
 .profile{ width:100%; height:100%; object-fit:cover; object-position:center 15%; border-radius:40px; border:8px solid rgba(255,255,255,.92); box-shadow:0 35px 70px rgba(15,23,42,.14); }
 
-/* SOFTWARE (ICONOS CORREGIDOS) */
+/* SOFTWARE - Ajuste de posiciones individuales para evitar encimados */
 .software{
     position:absolute;
-    width:85px; /* Reducido levemente para hacer espacio */
+    width:85px; 
     height:85px;
     background:rgba(255,255,255,.82);
     backdrop-filter:blur(14px);
@@ -133,27 +132,36 @@ nav a:hover{ color:#0ea5e9; }
     animation:floatIcon 6s ease-in-out infinite;
     will-change: transform;
     transition:.4s ease;
+    z-index: 8;
 }
-.software:hover{ transform:translateY(-8px) scale(1.08); box-shadow:0 20px 45px rgba(14,165,233,.18); }
+.software:hover{ transform:translateY(-8px) scale(1.08); box-shadow:0 20px 45px rgba(14,165,233,.18); z-index: 12;}
 .software img{ width:45px; height:45px; object-fit:contain; transition:.4s ease; }
 .software:hover img{ transform:rotate(6deg); }
 
-/* Distribución alrededor de la foto (8 posiciones únicas) */
-.software1{ top: 20px; left: -40px; animation-delay: 0s; }
-.software2{ top: -10px; right: 20px; animation-delay: 1s; }
-.software3{ top: 220px; left: -60px; animation-delay: 2s; }
-.software4{ top: 180px; right: -50px; animation-delay: 3s; }
-.software5{ top: 420px; left: -30px; animation-delay: 4s; }
-.software6{ top: 380px; right: -60px; animation-delay: 5s; }
-.software7{ bottom: -20px; left: 80px; animation-delay: 6s; }
-.software8{ bottom: 10px; right: 20px; animation-delay: 7s; }
+/* Distribución exacta alrededor de la foto (8 iconos ubicados estratégicamente) */
+.software1{ top: -30px; left: 80px; animation-delay: 0s; }        /* Ai - Borde superior izquierdo */
+.software2{ top: -10px; right: 20px; animation-delay: 1s; }       /* ArcGIS - Esquina superior derecha */
+.software3{ top: 250px; left: -45px; animation-delay: 2s; }       /* AutoCAD - Medio izquierdo */
+.software4{ top: 320px; right: -40px; animation-delay: 3s; }      /* Excel - Medio inferior derecho */
+.software5{ bottom: 70px; left: -40px; animation-delay: 4s; }     /* PS - Esquina inferior izquierda */
+.software6{ bottom: 140px; right: -30px; animation-delay: 5s; }   /* Procreate - Medio inferior derecho (arriba de tarjeta) */
+.software7{ bottom: -30px; left: 140px; animation-delay: 6s; }    /* QGIS - Borde inferior central */
+.software8{ bottom: -20px; right: 90px; animation-delay: 7s; }    /* Word - Borde inferior central-derecho */
 
-/* FLOAT CARDS */
-.float-card{ position:absolute; background:rgba(255,255,255,.82); backdrop-filter:blur(12px); border:1px solid rgba(15,23,42,.05); padding:14px 20px; border-radius:20px; box-shadow:0 20px 45px rgba(15,23,42,.08); animation:floatCard 5s ease-in-out infinite; will-change: transform; font-size:13px; font-weight:700; }
+/* FLOAT CARDS - Separadas más hacia afuera (valores de -150px / -160px) */
+.float-card{ 
+    position:absolute; background:rgba(255,255,255,.82); backdrop-filter:blur(12px); 
+    border:1px solid rgba(15,23,42,.05); padding:14px 20px; border-radius:20px; 
+    box-shadow:0 20px 45px rgba(15,23,42,.08); animation:floatCard 5s ease-in-out infinite; 
+    will-change: transform; font-size:13px; font-weight:700; z-index: 10; 
+}
 .float-card i{ color:#0ea5e9; margin-right:10px; }
-.card1{ top:40px; left:-130px; }
-.card2{ bottom:50px; right:-140px; animation-delay:2s; }
-.card3{ top:50%; right:-130px; animation-delay:4s; }
+
+/* Ubicaciones de tarjetas flotantes reajustadas */
+.card1{ top: 60px; left: -160px; } /* SIG y Cartografía - Arriba izquierda */
+.card2{ bottom: 40px; right: -150px; animation-delay: 2s; } /* Planeación Territorial - Abajo derecha */
+.card3{ top: 160px; right: -160px; animation-delay: 4s; } /* Análisis Espacial - Medio arriba derecha */
+
 
 /* SECCIONES GENERALES */
 section{ padding:50px 0; }
