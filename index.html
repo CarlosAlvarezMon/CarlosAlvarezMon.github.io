@@ -6,1015 +6,218 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Carlos Álvarez Monjaraz | Urbanismo y Planeación Territorial
-</title>
+<title>Carlos Álvarez Monjaraz | Urbanismo y Planeación Territorial</title>
 
-<meta name="description"
-content="Portafolio profesional de Carlos Álvarez Monjaraz, urbanista especializado en análisis espacial, SIG, diseño urbano y planeación territorial.">
-
-<meta property="og:title"
-content="Carlos Álvarez Monjaraz | Urbanismo y SIG">
-
-<meta property="og:description"
-content="Portafolio profesional en urbanismo, análisis espacial y planeación territorial.">
-
-<meta property="og:image"
-content="Foto.jpg">
+<meta name="description" content="Portafolio profesional de Carlos Álvarez Monjaraz, urbanista especializado en análisis espacial, SIG, diseño urbano y planeación territorial.">
+<meta property="og:title" content="Carlos Álvarez Monjaraz | Urbanismo y SIG">
+<meta property="og:description" content="Portafolio profesional en urbanismo, análisis espacial y planeación territorial.">
+<meta property="og:image" content="Foto.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-<link rel="stylesheet"
-href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 
 <style>
 
 /* RESET */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Inter',sans-serif;
-    background:#eef4f8;
-    color:#0f172a;
-    overflow-x:hidden;
-}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ font-family:'Inter',sans-serif; background:#eef4f8; color:#0f172a; overflow-x:hidden; }
 
 /* FONDO */
-
 .bg{
-    position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    background:
-    linear-gradient(
-    rgba(247,250,252,.92),
-    rgba(240,248,255,.95)
-    ),
-    url('Fondo.jpg');
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-    z-index:-5;
+    position:fixed; width:100%; height:100%; top:0; left:0;
+    background: linear-gradient(rgba(247,250,252,.92), rgba(240,248,255,.95)), url('Fondo.jpg');
+    background-size:cover; background-position:center; background-attachment:fixed; z-index:-5;
 }
 
 /* GRID */
-
 .grid{
-    position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    z-index:-4;
-    background-image:
-    linear-gradient(
-    rgba(14,165,233,.04) 1px,
-    transparent 1px
-    ),
-    linear-gradient(
-    90deg,
-    rgba(14,165,233,.04) 1px,
-    transparent 1px
-    );
-    background-size:70px 70px;
-    animation:gridMove 24s linear infinite;
-    will-change: transform;
+    position:fixed; width:100%; height:100%; top:0; left:0; z-index:-4;
+    background-image: linear-gradient(rgba(14,165,233,.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(14,165,233,.04) 1px, transparent 1px);
+    background-size:70px 70px; animation:gridMove 24s linear infinite; will-change: transform;
 }
 
 /* BLOBS */
-
 .blob{
-    position:fixed;
-    border-radius:50%;
-    filter:blur(70px);
-    opacity:.10;
-    z-index:-3;
-    animation:float 10s ease-in-out infinite;
-    will-change: transform;
+    position:fixed; border-radius:50%; filter:blur(70px); opacity:.10; z-index:-3;
+    animation:float 10s ease-in-out infinite; will-change: transform;
 }
-
-.blob1{
-    width:350px;
-    height:350px;
-    background:#38bdf8;
-    top:-120px;
-    left:-80px;
-}
-
-.blob2{
-    width:280px;
-    height:280px;
-    background:#2563eb;
-    bottom:-90px;
-    right:-50px;
-    animation-delay:2s;
-}
+.blob1{ width:350px; height:350px; background:#38bdf8; top:-120px; left:-80px; }
+.blob2{ width:280px; height:280px; background:#2563eb; bottom:-90px; right:-50px; animation-delay:2s; }
 
 /* NAV */
-
 nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:1000;
-    background:rgba(255,255,255,.72);
-    backdrop-filter:blur(16px);
+    position:fixed; top:0; width:100%; z-index:1000;
+    background:rgba(255,255,255,.72); backdrop-filter:blur(16px);
     border-bottom:1px solid rgba(15,23,42,.05);
 }
-
 .nav-container{
-    width:92%;
-    max-width:1350px;
-    margin:auto;
-    padding:16px 0;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    width:92%; max-width:1350px; margin:auto; padding:16px 0;
+    display:flex; justify-content:space-between; align-items:center;
 }
-
-.logo{
-    font-size:18px;
-    font-weight:800;
-    letter-spacing:.5px;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:28px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#334155;
-    font-size:14px;
-    font-weight:600;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#0ea5e9;
-}
+.logo{ font-size:18px; font-weight:800; letter-spacing:.5px; }
+nav ul{ display:flex; list-style:none; gap:28px; }
+nav a{ text-decoration:none; color:#334155; font-size:14px; font-weight:600; transition:.3s; }
+nav a:hover{ color:#0ea5e9; }
 
 /* HERO */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding:120px 0 50px; 
-}
-
+.hero{ min-height:100vh; display:flex; align-items:center; padding:120px 0 50px; }
 .hero-container{
-    width:92%;
-    max-width:1350px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:70px;
-    align-items:center;
+    width:92%; max-width:1350px; margin:auto; display:grid;
+    grid-template-columns:1.1fr .9fr; gap:70px; align-items:center;
 }
 
 /* HERO LEFT */
-
 .mini-label{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:12px 18px;
-    border-radius:50px;
-    background:rgba(255,255,255,.78);
-    border:1px solid rgba(15,23,42,.05);
-    backdrop-filter:blur(12px);
-    margin-bottom:28px;
-    font-size:13px;
-    font-weight:700;
-    color:#0369a1;
+    display:inline-flex; align-items:center; gap:10px; padding:12px 18px;
+    border-radius:50px; background:rgba(255,255,255,.78); border:1px solid rgba(15,23,42,.05);
+    backdrop-filter:blur(12px); margin-bottom:28px; font-size:13px; font-weight:700; color:#0369a1;
 }
 
+/* CORRECCIÓN DE NOMBRE ENCIMADO */
 .hero h1{
     font-family:'Sora',sans-serif;
     font-size:clamp(58px,9vw,96px);
-    line-height:.9;
-    letter-spacing:-5px;
+    line-height: 1.1; /* Aumentado para separar las líneas */
+    letter-spacing: -2px; /* Reducido para no juntar tanto las letras */
     margin-bottom:24px;
     font-weight:800;
 }
-
-.hero h1 span{
-    color:#0ea5e9;
-}
-
-.hero h2{
-    font-size:25px;
-    color:#334155;
-    margin-bottom:24px;
-    font-weight:600;
-}
-
-.hero p{
-    max-width:700px;
-    color:#475569;
-    font-size:18px;
-    line-height:1.9;
-    margin-bottom:35px;
-}
-
-.coords{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:35px;
-    font-size:14px;
-    color:#475569;
-    letter-spacing:2px;
-}
+.hero h1 span{ color:#0ea5e9; }
+.hero h2{ font-size:25px; color:#334155; margin-bottom:24px; font-weight:600; }
+.hero p{ max-width:700px; color:#475569; font-size:18px; line-height:1.9; margin-bottom:35px; }
+.coords{ display:flex; align-items:center; gap:12px; margin-bottom:35px; font-size:14px; color:#475569; letter-spacing:2px; }
 
 /* BOTONES */
-
-.buttons{
-    display:flex;
-    gap:18px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:16px 30px;
-    border-radius:16px;
-    text-decoration:none;
-    font-weight:700;
-    transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-}
-
-.btn-primary{
-    background:linear-gradient(
-    135deg,
-    #0ea5e9,
-    #2563eb
-    );
-    color:white;
-    box-shadow:
-    0 20px 45px rgba(37,99,235,.18);
-}
-
-.btn-primary:hover{
-    transform:translateY(-4px);
-}
-
-.btn-secondary{
-    background:white;
-    color:#0f172a;
-    border:1px solid rgba(15,23,42,.08);
-}
-
-.btn-secondary:hover{
-    transform:translateY(-4px);
-}
+.buttons{ display:flex; gap:18px; flex-wrap:wrap; }
+.btn{ padding:16px 30px; border-radius:16px; text-decoration:none; font-weight:700; transition:transform .3s ease, box-shadow .3s ease; }
+.btn-primary{ background:linear-gradient(135deg, #0ea5e9, #2563eb); color:white; box-shadow:0 20px 45px rgba(37,99,235,.18); }
+.btn-primary:hover{ transform:translateY(-4px); }
+.btn-secondary{ background:white; color:#0f172a; border:1px solid rgba(15,23,42,.08); }
+.btn-secondary:hover{ transform:translateY(-4px); }
 
 /* TAGS */
-
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:45px;
-}
-
-.tag{
-    padding:10px 18px;
-    border-radius:40px;
-    background:white;
-    border:1px solid rgba(15,23,42,.05);
-    font-size:13px;
-    font-weight:700;
-    color:#0f172a;
-    transition:.3s;
-}
-
-.tag:hover{
-    transform:translateY(-4px);
-    background:#0ea5e9;
-    color:white;
-}
+.tags{ display:flex; flex-wrap:wrap; gap:12px; margin-top:45px; }
+.tag{ padding:10px 18px; border-radius:40px; background:white; border:1px solid rgba(15,23,42,.05); font-size:13px; font-weight:700; color:#0f172a; transition:.3s; }
+.tag:hover{ transform:translateY(-4px); background:#0ea5e9; color:white; }
 
 /* STATS */
-
-.stats{
-    display:flex;
-    gap:22px;
-    margin-top:50px;
-    flex-wrap:wrap;
-}
-
-.stat{
-    background:rgba(255,255,255,.80);
-    backdrop-filter:blur(14px);
-    border-radius:24px;
-    padding:24px;
-    min-width:180px;
-    box-shadow:
-    0 18px 40px rgba(15,23,42,.05);
-}
-
-.stat h3{
-    font-size:34px;
-    color:#0ea5e9;
-    margin-bottom:8px;
-}
-
-.stat p{
-    font-size:14px;
-    line-height:1.5;
-    margin:0;
-}
+.stats{ display:flex; gap:22px; margin-top:50px; flex-wrap:wrap; }
+.stat{ background:rgba(255,255,255,.80); backdrop-filter:blur(14px); border-radius:24px; padding:24px; min-width:180px; box-shadow:0 18px 40px rgba(15,23,42,.05); }
+.stat h3{ font-size:34px; color:#0ea5e9; margin-bottom:8px; }
+.stat p{ font-size:14px; line-height:1.5; margin:0; }
 
 /* HERO RIGHT */
+.hero-right{ position:relative; display:flex; justify-content:center; align-items:center; }
+.profile-wrap{ position:relative; width:470px; height:600px; }
+.profile{ width:100%; height:100%; object-fit:cover; object-position:center 15%; border-radius:40px; border:8px solid rgba(255,255,255,.92); box-shadow:0 35px 70px rgba(15,23,42,.14); }
 
-.hero-right{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.profile-wrap{
-    position:relative;
-    width:470px;
-    height:600px;
-}
-
-.profile{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 15%;
-    border-radius:40px;
-    border:8px solid rgba(255,255,255,.92);
-    box-shadow:
-    0 35px 70px rgba(15,23,42,.14);
-}
-
-/* SOFTWARE */
-
+/* SOFTWARE (ICONOS CORREGIDOS) */
 .software{
     position:absolute;
-    width:95px;
-    height:95px;
+    width:85px; /* Reducido levemente para hacer espacio */
+    height:85px;
     background:rgba(255,255,255,.82);
     backdrop-filter:blur(14px);
     border-radius:50%;
     display:flex;
     justify-content:center;
     align-items:center;
-    box-shadow:
-    0 20px 45px rgba(15,23,42,.08);
+    box-shadow: 0 20px 45px rgba(15,23,42,.08);
     animation:floatIcon 6s ease-in-out infinite;
     will-change: transform;
     transition:.4s ease;
 }
+.software:hover{ transform:translateY(-8px) scale(1.08); box-shadow:0 20px 45px rgba(14,165,233,.18); }
+.software img{ width:45px; height:45px; object-fit:contain; transition:.4s ease; }
+.software:hover img{ transform:rotate(6deg); }
 
-.software:hover{
-    transform:
-    translateY(-8px)
-    scale(1.08);
-    box-shadow:
-    0 20px 45px rgba(14,165,233,.18);
-}
-
-.software img{
-    width:55px;
-    height:55px;
-    object-fit:contain;
-    transition:.4s ease;
-}
-
-.software:hover img{
-    transform:rotate(6deg);
-}
-
-.software1{ top:-30px; left:-50px; }
-.software2{ top:70px; right:-70px; animation-delay:1s; }
-.software3{ top:250px; left:-90px; animation-delay:2s; }
-.software4{ bottom:120px; right:-80px; animation-delay:3s; }
-.software5{ bottom:-20px; left:-20px; animation-delay:4s; }
-.software6{ bottom:20px; right:20px; animation-delay:5s; }
+/* Distribución alrededor de la foto (8 posiciones únicas) */
+.software1{ top: 20px; left: -40px; animation-delay: 0s; }
+.software2{ top: -10px; right: 20px; animation-delay: 1s; }
+.software3{ top: 220px; left: -60px; animation-delay: 2s; }
+.software4{ top: 180px; right: -50px; animation-delay: 3s; }
+.software5{ top: 420px; left: -30px; animation-delay: 4s; }
+.software6{ top: 380px; right: -60px; animation-delay: 5s; }
+.software7{ bottom: -20px; left: 80px; animation-delay: 6s; }
+.software8{ bottom: 10px; right: 20px; animation-delay: 7s; }
 
 /* FLOAT CARDS */
-
-.float-card{
-    position:absolute;
-    background:rgba(255,255,255,.82);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(15,23,42,.05);
-    padding:14px 20px;
-    border-radius:20px;
-    box-shadow:
-    0 20px 45px rgba(15,23,42,.08);
-    animation:floatCard 5s ease-in-out infinite;
-    will-change: transform;
-    font-size:13px;
-    font-weight:700;
-}
-
-.float-card i{
-    color:#0ea5e9;
-    margin-right:10px;
-}
-
+.float-card{ position:absolute; background:rgba(255,255,255,.82); backdrop-filter:blur(12px); border:1px solid rgba(15,23,42,.05); padding:14px 20px; border-radius:20px; box-shadow:0 20px 45px rgba(15,23,42,.08); animation:floatCard 5s ease-in-out infinite; will-change: transform; font-size:13px; font-weight:700; }
+.float-card i{ color:#0ea5e9; margin-right:10px; }
 .card1{ top:40px; left:-130px; }
 .card2{ bottom:50px; right:-140px; animation-delay:2s; }
 .card3{ top:50%; right:-130px; animation-delay:4s; }
 
 /* SECCIONES GENERALES */
-
 section{ padding:50px 0; }
-
-.container{
-    width:92%;
-    max-width:1280px;
-    margin:auto;
-}
-
-.section-title{
-    font-family:'Sora',sans-serif;
-    font-size:52px;
-    margin-bottom:45px;
-    font-weight:800;
-    letter-spacing:-2px;
-}
+.container{ width:92%; max-width:1280px; margin:auto; }
+.section-title{ font-family:'Sora',sans-serif; font-size:52px; margin-bottom:45px; font-weight:800; letter-spacing:-2px; }
 
 /* CARDS */
-
-.card{
-    background:rgba(255,255,255,.78);
-    backdrop-filter:blur(16px);
-    border:1px solid rgba(15,23,42,.05);
-    border-radius:28px;
-    padding:34px;
-    margin-bottom:24px;
-    transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-    box-shadow:
-    0 18px 40px rgba(15,23,42,.05);
-}
-
-.card:hover{
-    transform:translateY(-4px);
-}
+.card{ background:rgba(255,255,255,.78); backdrop-filter:blur(16px); border:1px solid rgba(15,23,42,.05); border-radius:28px; padding:34px; margin-bottom:24px; transition:transform .3s ease, box-shadow .3s ease; box-shadow:0 18px 40px rgba(15,23,42,.05); }
+.card:hover{ transform:translateY(-4px); }
 
 /* ESTILOS PARA LISTAS DE EXPERIENCIA/EDUCACIÓN */
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+.card-header h3 { font-size: 22px; color: #0f172a; font-weight: 700; }
+.card-header .date-label { background: #e0f2fe; color: #0369a1; padding: 6px 14px; border-radius: 50px; font-size: 13px; font-weight: 700; }
+.card-location { font-size: 14px; color: #64748b; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+.card-list { list-style: none; }
+.card-list li { position: relative; padding-left: 25px; margin-bottom: 12px; font-size: 15px; line-height: 1.7; color: #475569; }
+.card-list li::before { content: "•"; color: #0ea5e9; font-size: 20px; position: absolute; left: 0; top: -2px; }
 
-.card-header h3 {
-    font-size: 22px;
-    color: #0f172a;
-    font-weight: 700;
-}
-
-.card-header .date-label {
-    background: #e0f2fe;
-    color: #0369a1;
-    padding: 6px 14px;
-    border-radius: 50px;
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.card-location {
-    font-size: 14px;
-    color: #64748b;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.card-list {
-    list-style: none;
-}
-
-.card-list li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 12px;
-    font-size: 15px;
-    line-height: 1.7;
-    color: #475569;
-}
-
-.card-list li::before {
-    content: "•";
-    color: #0ea5e9;
-    font-size: 20px;
-    position: absolute;
-    left: 0;
-    top: -2px;
-}
-
-/* HABILIDADES (Ajustes solicitados) */
-
-.skills{
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    gap:24px;
-}
-
-.skill{
-    background:white;
-    padding:32px;
-    border-radius:28px;
-    transition:.3s ease;
-    box-shadow: 0 18px 40px rgba(15,23,42,.05);
-}
-
-.skill:hover{
-    transform:translateY(-4px);
-}
-
-.skill-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-/* Ajuste para acomodar el porcentaje */
-.skill-title-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.skill-percent {
-    font-size: 14px;
-    font-weight: 800;
-    color: #0ea5e9;
-    margin-top: 4px;
-}
-
-.skill-top i{
-    font-size:24px;
-    color:#0ea5e9;
-}
-
-.bar{
-    width:100%;
-    height:10px;
-    background:#dbeafe;
-    border-radius:20px;
-    overflow:hidden;
-    margin-bottom:18px;
-}
-
-.progress{
-    height:100%;
-    border-radius:20px;
-    background:linear-gradient(to right, #0ea5e9, #2563eb);
-}
-
-/* Separación del texto a la barra */
-.skill p {
-    margin-top: 20px;
-    color: #475569;
-    line-height: 1.6;
-    font-size: 14px;
-}
+/* HABILIDADES */
+.skills{ display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
+.skill{ background:white; padding:32px; border-radius:28px; transition:.3s ease; box-shadow: 0 18px 40px rgba(15,23,42,.05); }
+.skill:hover{ transform:translateY(-4px); }
+.skill-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+.skill-title-wrapper { display: flex; flex-direction: column; flex-grow: 1; }
+.skill-percent { font-size: 14px; font-weight: 800; color: #0ea5e9; margin-top: 4px; }
+.skill-top i{ font-size:24px; color:#0ea5e9; }
+.bar{ width:100%; height:10px; background:#dbeafe; border-radius:20px; overflow:hidden; margin-bottom:18px; }
+.progress{ height:100%; border-radius:20px; background:linear-gradient(to right, #0ea5e9, #2563eb); }
+.skill p { margin-top: 20px; color: #475569; line-height: 1.6; font-size: 14px; }
 
 /* PROYECTOS */
-
-.projects{
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(480px,1fr));
-    gap:34px;
-}
-
-.project{
-    overflow:hidden;
-    background:white;
-    border-radius:32px;
-    box-shadow: 0 20px 45px rgba(15,23,42,.06);
-    transition:.3s ease;
-}
-
-.project:hover{
-    transform:translateY(-4px);
-}
-
-.project > img,
-.carousel-container {
-    width:100%;
-    aspect-ratio:1.414/1;
-    object-fit:cover;
-    display:block;
-    transition:.5s;
-}
-
-.project:hover > img,
-.project:hover .carousel-track img {
-    transform:scale(1.03);
-}
-
-.carousel-container {
-    position:relative;
-    overflow:hidden;
-}
-
-.carousel-track {
-    display:flex;
-    width:100%;
-    height:100%;
-    transition:transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.carousel-track img {
-    width:100%;
-    height:100%;
-    flex-shrink:0;
-    object-fit:cover;
-    transition:transform 0.5s;
-}
-
-.carousel-indicators {
-    position:absolute;
-    bottom:16px;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    gap:8px;
-    z-index:10;
-}
-
-.dot {
-    width:10px;
-    height:10px;
-    background:rgba(255,255,255,0.4);
-    border-radius:50%;
-    transition:0.3s ease;
-    cursor:pointer;
-}
-
-.dot.active {
-    background:white;
-    transform:scale(1.2);
-}
-
+.projects{ display:grid; grid-template-columns: repeat(auto-fit,minmax(480px,1fr)); gap:34px; }
+.project{ overflow:hidden; background:white; border-radius:32px; box-shadow: 0 20px 45px rgba(15,23,42,.06); transition:.3s ease; }
+.project:hover{ transform:translateY(-4px); }
+.project > img, .carousel-container { width:100%; aspect-ratio:1.414/1; object-fit:cover; display:block; transition:.5s; }
+.project:hover > img, .project:hover .carousel-track img { transform:scale(1.03); }
+.carousel-container { position:relative; overflow:hidden; }
+.carousel-track { display:flex; width:100%; height:100%; transition:transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.carousel-track img { width:100%; height:100%; flex-shrink:0; object-fit:cover; transition:transform 0.5s; }
+.carousel-indicators { position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10; }
+.dot { width:10px; height:10px; background:rgba(255,255,255,0.4); border-radius:50%; transition:0.3s ease; cursor:pointer; }
+.dot.active { background:white; transform:scale(1.2); }
 .project-content{ padding:28px; }
-
-.project-category{
-    display:inline-block;
-    padding:8px 14px;
-    border-radius:30px;
-    background:rgba(14,165,233,.10);
-    color:#0284c7;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:18px;
-}
-
-.project-location{
-    display:block;
-    margin-top:8px;
-    margin-bottom:18px;
-    color:#64748b;
-    font-size:14px;
-}
-
-.project-content p{
-    line-height:1.8;
-    color:#475569;
-}
-
-.project-features{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-    margin-top:24px;
-    margin-bottom:24px;
-}
-
-.feature{
-    background:#f8fbfd;
-    border:1px solid rgba(15,23,42,.05);
-    padding:14px;
-    border-radius:18px;
-    font-size:13px;
-    font-weight:600;
-    color:#334155;
-    line-height:1.5;
-}
-
-.feature i{
-    color:#0ea5e9;
-    margin-right:8px;
-}
-
-.project-tools{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:10px;
-}
-
-.project-tools span{
-    padding:10px 14px;
-    border-radius:30px;
-    background:#eef6fb;
-    color:#0369a1;
-    font-size:12px;
-    font-weight:700;
-}
-
-/* SECCIÓN: CONSTANCIAS Y CERTIFICACIONES */
-
-.certificates-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-}
-
-.certificate-card{
-    background:white;
-    border:1px solid rgba(15,23,42,.05);
-    border-radius:28px;
-    box-shadow:0 18px 40px rgba(15,23,42,.05);
-    transition:.3s ease;
-    display:flex;
-    flex-direction:column;
-    overflow:hidden;
-    cursor:pointer;
-}
-
-.certificate-card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(14,165,233,.2);
-    box-shadow:0 22px 45px rgba(15,23,42,.08);
-}
-
-.cert-preview {
-    width:100%;
-    height:180px;
-    overflow:hidden;
-    background:#e2e8f0;
-    border-bottom:1px solid rgba(15,23,42,.05);
-}
-
-.cert-preview img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:top center;
-    transition:transform .5s ease;
-}
-
-.certificate-card:hover .cert-preview img {
-    transform:scale(1.04);
-}
-
-.cert-content {
-    padding:26px;
-    display:flex;
-    flex-direction:column;
-    flex-grow:1;
-}
-
-.cert-icon{
-    font-size:22px;
-    color:#0ea5e9;
-    margin-bottom:14px;
-}
-
-.cert-header-line {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:12px;
-}
-
-.cert-year{
-    display:inline-block;
-    padding:5px 12px;
-    border-radius:12px;
-    background:rgba(14,165,233,.1);
-    color:#0284c7;
-    font-size:12px;
-    font-weight:700;
-}
-
-.cert-title{
-    font-size:18px;
-    font-weight:700;
-    color:#0f172a;
-    margin-bottom:8px;
-    line-height:1.4;
-}
-
-.cert-issuer{
-    font-size:13px;
-    color:#64748b;
-    font-weight:600;
-    margin-bottom:12px;
-}
-
-.cert-desc{
-    font-size:13px;
-    color:#475569;
-    line-height:1.6;
-    margin-bottom:24px;
-}
-
-.btn-cert{
-    font-size:13px;
-    font-weight:700;
-    color:#0ea5e9;
-    text-decoration:none;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition:.2s;
-    margin-top:auto;
-}
-
-.certificate-card:hover .btn-cert{
-    color:#2563eb;
-}
-
-/* ESTRUCTURA DEL MODAL */
-
-.pdf-modal {
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(15,23,42,0.4);
-    backdrop-filter:blur(10px);
-    z-index:2000;
-    justify-content:center;
-    align-items:center;
-    opacity:0;
-    transition:opacity 0.3s ease;
-}
-
-.pdf-modal.active {
-    display:flex;
-    opacity:1;
-}
-
-.modal-content {
-    background:white;
-    width:90%;
-    max-width:1000px;
-    height:85vh;
-    border-radius:28px;
-    box-shadow:0 35px 70px rgba(15,23,42,.15);
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
-    transform:scale(0.92);
-    transition:transform 0.3s ease;
-}
-
-.pdf-modal.active .modal-content {
-    transform:scale(1);
-}
-
-.modal-header {
-    padding:20px 28px;
-    background:#f8fbfd;
-    border-bottom:1px solid rgba(15,23,42,.05);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.modal-title-wrapper {
-    max-width:80%;
-}
-
-.modal-title {
-    font-family:'Sora',sans-serif;
-    font-size:16px;
-    font-weight:700;
-    color:#0f172a;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
-
-.modal-close-btn {
-    background:none;
-    border:none;
-    font-size:22px;
-    color:#64748b;
-    cursor:pointer;
-    transition:.2s;
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.modal-close-btn:hover {
-    background:rgba(15,23,42,.05);
-    color:#ef4444;
-}
-
-.modal-body {
-    flex:1;
-    background:#eef4f8;
-    position:relative;
-}
-
-.modal-body iframe {
-    width:100%;
-    height:100%;
-    border:none;
-}
-
-/* FOOTER */
-
-footer{
-    padding:40px;
-    text-align:center;
-    color:#64748b;
-    border-top:1px solid rgba(15,23,42,.06);
-    margin-top:20px;
-}
+.project-category{ display:inline-block; padding:8px 14px; border-radius:30px; background:rgba(14,165,233,.10); color:#0284c7; font-size:12px; font-weight:700; margin-bottom:18px; }
+.project-location{ display:block; margin-top:8px; margin-bottom:18px; color:#64748b; font-size:14px; }
+.project-content p{ line-height:1.8; color:#475569; }
+.project-features{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px; margin-bottom:24px; }
+.feature{ background:#f8fbfd; border:1px solid rgba(15,23,42,.05); padding:14px; border-radius:18px; font-size:13px; font-weight:600; color:#334155; line-height:1.5; }
+.feature i{ color:#0ea5e9; margin-right:8px; }
+.project-tools{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+.project-tools span{ padding:10px 14px; border-radius:30px; background:#eef6fb; color:#0369a1; font-size:12px; font-weight:700; }
 
 /* ANIMACIONES */
-
-@keyframes float{
-    0%{ transform:translateY(0px); }
-    50%{ transform:translateY(-25px); }
-    100%{ transform:translateY(0px); }
-}
-
-@keyframes floatCard{
-    0%{ transform:translateY(0px); }
-    50%{ transform:translateY(-10px); }
-    100%{ transform:translateY(0px); }
-}
-
-@keyframes floatIcon{
-    0%{ transform:translateY(0px); }
-    50%{ transform:translateY(-15px); }
-    100%{ transform:translateY(0px); }
-}
-
-@keyframes gridMove{
-    from{ transform:translateY(0); }
-    to{ transform:translateY(70px); }
-}
+@keyframes float{ 0%{ transform:translateY(0px); } 50%{ transform:translateY(-25px); } 100%{ transform:translateY(0px); } }
+@keyframes floatCard{ 0%{ transform:translateY(0px); } 50%{ transform:translateY(-10px); } 100%{ transform:translateY(0px); } }
+@keyframes floatIcon{ 0%{ transform:translateY(0px); } 50%{ transform:translateY(-15px); } 100%{ transform:translateY(0px); } }
+@keyframes gridMove{ from{ transform:translateY(0); } to{ transform:translateY(70px); } }
 
 /* RESPONSIVE */
-
-@media(max-width:980px){
-    .hero-container{ grid-template-columns:1fr; }
-    .profile-wrap{ width:340px; height:450px; }
-}
-
-@media(max-width:768px){
-    nav ul{ display:none; }
-    .hero h1{ font-size:52px; }
-    .profile-wrap{ width:290px; height:380px; }
-    .float-card{ display:none; }
-    .projects{ grid-template-columns:1fr; }
-    .project-features{ grid-template-columns:1fr; }
-    .modal-content { height: 75vh; width: 95%; }
-}
+@media(max-width:980px){ .hero-container{ grid-template-columns:1fr; } .profile-wrap{ width:340px; height:450px; } }
+@media(max-width:768px){ nav ul{ display:none; } .hero h1{ font-size:52px; } .profile-wrap{ width:290px; height:380px; } .float-card{ display:none; } .projects{ grid-template-columns:1fr; } .project-features{ grid-template-columns:1fr; } }
 
 </style>
-
 </head>
 
 <body>
@@ -1102,14 +305,14 @@ planeación territorial y representación cartográfica.
 <div class="profile-wrap">
 <img src="Foto.jpg" class="profile">
 
-<div class="software software1"><img src="Logo Qgis.png"></div>
+<div class="software software1"><img src="Logo Ai.png"></div>
 <div class="software software2"><img src="Logo Arcgis.png"></div>
 <div class="software software3"><img src="Logo Autocad.png"></div>
-<div class="software software4"><img src="Logo Ai.png"></div>
-<div class="software software5"><img src="Logo Excel.png"></div>
-<div class="software software6"><img src="Logo PS.png"></div>
-<div class="software software6"><img src="Logo Word.png"></div>
+<div class="software software4"><img src="Logo Excel.png"></div>
+<div class="software software5"><img src="Logo PS.png"></div>
 <div class="software software6"><img src="Logo Procreate.png"></div>
+<div class="software software7"><img src="Logo Qgis.png"></div>
+<div class="software software8"><img src="Logo Word.png"></div>
 
 <div class="float-card card1">
 <i class="fa-solid fa-map-location-dot"></i>
@@ -1232,7 +435,7 @@ Urbanista en proceso de titulación con experiencia en análisis territorial, ev
 
         <div class="card">
             <div class="card-header">
-                <h3>Ponente: Jornadas de Participación Social en el Urbanismo y la Arquitectura: Avances y Desafíos para una Práctica Profesional Inclusiva </h3>
+                <h3>Ponente: Jornadas de Participación Social en el Urbanismo y la Arquitectura</h3>
                 <span class="date-label">Abril 2025</span>
             </div>
             <div class="card-location">
@@ -1263,9 +466,7 @@ Urbanista en proceso de titulación con experiencia en análisis territorial, ev
 <div class="bar">
     <div class="progress" style="width:95%;"></div>
 </div>
-<p>
-QGIS · ArcGIS · Análisis espacial · Cartografía temática · Modelación territorial.
-</p>
+<p>QGIS · ArcGIS · Análisis espacial · Cartografía temática · Modelación territorial.</p>
 </div>
 
 <div class="skill">
@@ -1279,9 +480,7 @@ QGIS · ArcGIS · Análisis espacial · Cartografía temática · Modelación te
 <div class="bar">
     <div class="progress" style="width:85%;"></div>
 </div>
-<p>
-GeoDa · Excel · Análisis urbano · Estadística espacial · Evaluación territorial.
-</p>
+<p>GeoDa · Excel · Análisis urbano · Estadística espacial · Evaluación territorial.</p>
 </div>
 
 <div class="skill">
@@ -1295,9 +494,7 @@ GeoDa · Excel · Análisis urbano · Estadística espacial · Evaluación terri
 <div class="bar">
     <div class="progress" style="width:85%;"></div>
 </div>
-<p>
-AutoCAD · Illustrator · Photoshop · Representación gráfica urbana.
-</p>
+<p>AutoCAD · Illustrator · Photoshop · Representación gráfica urbana.</p>
 </div>
 
 <div class="skill">
@@ -1311,9 +508,7 @@ AutoCAD · Illustrator · Photoshop · Representación gráfica urbana.
 <div class="bar">
     <div class="progress" style="width:95%;"></div>
 </div>
-<p>
-Paquetería Office · Redacción de Informes Técnicos · Diagramación de Láminas de Presentación.
-</p>
+<p>Paquetería Office · Redacción de Informes Técnicos · Diagramación de Láminas de Presentación.</p>
 </div>
 
 </div>
@@ -1410,28 +605,12 @@ Evaluación urbana y análisis territorial para proyectos urbanos y regionales i
 <h3>Rediseño de la intersección Corina – San Pedro – Cuauhtémoc, Coyoacán, CDMX</h3>
 <span class="project-location">Inmediaciones de la Preparatoria No. 6 UNAM · CDMX</span>
 <p>
-Propuesta de rediseño integral del cruce urbano a partir del análisis de complejidad vial y los resultados obtenidos mediante participación comunitaria con población estudiantil.
-La intervención reorganiza el espacio público para mejorar la movilidad peatonal, reducir conflictos viales y optimizar el funcionamiento del nodo urbano.
+Propuesta de rediseño integral del cruce urbano a partir del análisis de complejidad vial y los resultados obtenidos mediante participación comunitaria.
 </p>
-<div class="project-features">
-<div class="feature">
-<i class="fa-solid fa-person-walking"></i> Ampliación de banquetas y accesibilidad universal
-</div>
-<div class="feature">
-<i class="fa-solid fa-road"></i> Implementación de orejas y radios normativos
-</div>
-<div class="feature">
-<i class="fa-solid fa-tree"></i> Infraestructura verde y recuperación de espacio público
-</div>
-<div class="feature">
-<i class="fa-solid fa-bus"></i> Ordenamiento vial y ascenso-descenso
-</div>
-</div>
 <div class="project-tools">
+<span>Diseño Vial</span>
+<span>Movilidad Urbana</span>
 <span>AutoCAD</span>
-<span>Diseño Urbano</span>
-<span>Movilidad</span>
-<span>Espacio Público</span>
 </div>
 </div>
 </div>
@@ -1439,169 +618,13 @@ La intervención reorganiza el espacio público para mejorar la movilidad peaton
 </div>
 </div>
 </section>
-
-<section id="constancias">
-    <div class="container" data-aos="fade-up">
-        <h2 class="section-title">Constancias y Certificaciones</h2>
- </h2>
-
-<div class="certificates-grid">
-
-<div class="certificate-card" onclick="openPdfModal('Constancia ALEUP.pdf', 'XVI Congreso de Planificación y Ordenamiento Territorial')">
-    <div class="cert-preview">
-        <img src="Constancia ALEUP.jpg" alt="Vista previa Constancia ALEUP" loading="lazy">
-    </div>
-    <div class="cert-content">
-        <div class="cert-header-line">
-            <span class="cert-year">2022</span>
-            <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
-        </div>
-        <h3 class="cert-title">Asistente en Congreso ALEUP</h3>
-        <p class="cert-issuer">Universidad de Guadalajara · CUAAD</p>
-        <p class="cert-desc">XVI Congreso: La enseñanza y la práctica profesional de la planificación y el ordenamiento territorial contemporáneo en América Latina y el Caribe: retos y realidades.</p>
-        <div class="btn-cert">
-            Visualizar constancia <i class="fa-solid fa-eye"></i>
-        </div>
-    </div>
-</div>
-
-<div class="certificate-card" onclick="openPdfModal('Constancia_IPDP.pdf', 'Mesa de Trabajo PGOT CDMX')">
-    <div class="cert-preview">
-        <img src="Constancia_IPDP.jpg" alt="Vista previa Constancia IPDP" loading="lazy">
-    </div>
-    <div class="cert-content">
-        <div class="cert-header-line">
-            <span class="cert-year">2022</span>
-            <div class="cert-icon"><i class="fa-solid fa-landmark"></i></div>
-        </div>
-        <h3 class="cert-title">Mesa de Trabajo PGOT CDMX</h3>
-        <p class="cert-issuer">IPDP CDMX · UNAM</p>
-        <p class="cert-desc">Participación en la presentación de propuestas en el marco de la Consulta Pública para el Proyecto del Programa General de Ordenamiento Territorial.</p>
-        <div class="btn-cert">
-            Visualizar constancia <i class="fa-solid fa-eye"></i>
-        </div>
-    </div>
-</div>
-
-<div class="certificate-card" onclick="openPdfModal('Constancia XXIII ANPUD.pdf', 'XXIII Congreso Nacional Desarrollo Urbano')">
-    <div class="cert-preview">
-        <img src="Constancia XXIII ANPUD.jpg" alt="Vista previa Constancia XXIII ANPUD" loading="lazy">
-    </div>
-    <div class="cert-content">
-        <div class="cert-header-line">
-            <span class="cert-year">2023</span>
-            <div class="cert-icon"><i class="fa-solid fa-users-rectangle"></i></div>
-        </div>
-        <h3 class="cert-title">Asistente en Congreso XXIII ANPUD</h3>
-        <p class="cert-issuer">UNAM · Facultad de Arquitectura</p>
-        <p class="cert-desc">XXIII Congreso Nacional Desarrollo Urbano: Entre la metrópolis y el barrio: teoría, políticas, género, historia y espacio público. Ciudad Universitaria, CDMX.</p>
-        <div class="btn-cert">
-            Visualizar constancia <i class="fa-solid fa-eye"></i>
-        </div>
-    </div>
-</div>
-
-<div class="certificate-card" onclick="openPdfModal('Constancias Farmacias.pdf', 'Proyecto Conceptual de la Farmacia Viviente')">
-    <div class="cert-preview">
-        <img src="Constancias Farmacias.jpg" alt="Vista previa Constancia Farmacias" loading="lazy">
-    </div>
-    <div class="cert-content">
-        <div class="cert-header-line">
-            <span class="cert-year">2024</span>
-            <div class="cert-icon"><i class="fa-solid fa-seedling"></i></div>
-        </div>
-        <h3 class="cert-title">Proyecto Conceptual "Farmacia Viviente"</h3>
-        <p class="cert-issuer">CORENADR · Suelo de Conservación CDMX</p>
-        <p class="cert-desc">Participación técnica en el Diseño y Propuesta del espacio para la comunidad Santiago Tepalcatlalpan de la Ciudad de México.</p>
-        <div class="btn-cert">
-            Visualizar constancia <i class="fa-solid fa-eye"></i>
-        </div>
-    </div>
-</div>
-
-<div class="certificate-card" onclick="openPdfModal('8vo Congreso de suelo urbano .pdf', '8vo Congreso Nacional de Suelo Urbano')">
-    <div class="cert-preview">
-        <img src="8vo Congreso de suelo urbano.jpg" alt="Vista previa 8vo Congreso Suelo Urbano" loading="lazy">
-    </div>
-    <div class="cert-content">
-        <div class="cert-header-line">
-            <span class="cert-year">2025</span>
-            <div class="cert-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-        </div>
-        <h3 class="cert-title">Participación en 8vo Congreso Nacional</h3>
-        <p class="cert-issuer">UABJO · Facultad de Arquitectura, Diseño y Urbanismo</p>
-        <p class="cert-desc">Congreso enfocado en dinámicas de Suelo Urbano, gestión del territorio y normativas. Realizado en Oaxaca de Juárez, México.</p>
-        <div class="btn-cert">
-            Visualizar constancia <i class="fa-solid fa-eye"></i>
-        </div>
-    </div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<div id="pdfModal" class="pdf-modal" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <div class="modal-header">
-            <div class="modal-title-wrapper">
-                <h3 class="modal-title" id="modalTitle">Documento</h3>
-            </div>
-            <button class="modal-close-btn" onclick="closeModal()">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-        <div class="modal-body">
-            <iframe id="pdfFrame" src=""></iframe>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>© 2026 Carlos Álvarez Monjaraz | Portafolio Profesional de Urbanismo y Planeación Territorial</p>
-</footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-    // Inicializar Animaciones
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-    });
-
-    // Lógica del Carrusel
-    const track = document.getElementById('acapulco-track');
-    if (track) {
-        const dots = document.querySelectorAll('.dot');
-        let index = 0;
-
-        setInterval(() => {
-            index = (index + 1) % dots.length;
-            track.style.transform = `translateX(-${index * 100}%)`;
-            
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
-        }, 3500);
-    }
-
-    // Lógica del Modal
-    function openModal(pdfUrl, title) {
-        document.getElementById('pdfFrame').src = pdfUrl;
-        document.getElementById('modalTitle').textContent = title;
-        document.getElementById('pdfModal').classList.add('active');
-        document.body.style.overflow = 'hidden'; 
-    }
-
-    function closeModal() {
-        document.getElementById('pdfModal').classList.remove('active');
-        setTimeout(() => {
-            document.getElementById('pdfFrame').src = "";
-        }, 300);
-        document.body.style.overflow = 'auto'; 
-    }
+  AOS.init({
+    duration: 800,
+    once: true
+  });
 </script>
 
 </body>
