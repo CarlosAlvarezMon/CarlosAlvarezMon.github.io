@@ -622,11 +622,68 @@ Propuesta de rediseño integral del cruce urbano a partir del análisis de compl
 </div>
 </div>
 </div>
-
+</section>
 </div>
 </div>
 </section>
 
+<section id="constancias">
+    <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Constancias y Certificaciones</h2>
+        
+        <div class="certificates-grid">
+            
+            <div class="certificate-card" onclick="openModal('Constancia_IPDP.pdf', 'Mesa Técnica IPDP')">
+                <div class="cert-preview">
+                    <img src="Constancia_IPDP.jpg" loading="lazy" alt="Constancia IPDP">
+                </div>
+                <div class="cert-content">
+                    <i class="fa-solid fa-award cert-icon"></i>
+                    <div class="cert-header-line">
+                        <span class="cert-year">2022</span>
+                    </div>
+                    <h4 class="cert-title">Mesa de Trabajo Proyecto PGOT</h4>
+                    <span class="cert-issuer">Instituto de Planeación Democrática y Prospectiva (IPDP)</span>
+                    <p class="cert-desc">Participación en la consulta pública de Ordenamiento Territorial.</p>
+                    <span class="btn-cert">Ver Constancia <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <div class="certificate-card" onclick="openModal('Constancias Farmacias.pdf', 'Constancia Farmacia Viviente')">
+                <div class="cert-preview">
+                    <img src="Constancias Farmacias.jpg" loading="lazy" alt="Constancia CORENADR">
+                </div>
+                <div class="cert-content">
+                    <i class="fa-solid fa-award cert-icon"></i>
+                    <div class="cert-header-line">
+                        <span class="cert-year">2024</span>
+                    </div>
+                    <h4 class="cert-title">Proyecto Farmacia Viviente</h4>
+                    <span class="cert-issuer">CORENADR CDMX</span>
+                    <p class="cert-desc">Participación técnica en el anteproyecto en Suelo de Conservación.</p>
+                    <span class="btn-cert">Ver Constancia <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div id="pdfModal" class="pdf-modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <div class="modal-title-wrapper">
+                <h3 class="modal-title" id="modalTitle">Documento</h3>
+            </div>
+            <button class="modal-close-btn" onclick="closeModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <iframe id="pdfFrame" src=""></iframe>
+        </div>
+    </div>
+</div>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({
